@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './Presentation.css';
+
 import Slide1 from './Slide1';
 import Slide2 from './Slide2';
 import Slide3 from './Slide3';
@@ -16,53 +17,69 @@ import Slide13 from './Slide13';
 import Slide14 from './Slide14';
 import Slide15 from './Slide15';
 
+const TOTAL_SLIDES = 15;
+
 const Presentation = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
   const [isSlideshowMode, setIsSlideshowMode] = useState(false);
-  const totalSlides = 15;
 
-  // Wrap functions with useCallback
+  /* =====================
+     Navigation callbacks
+     ===================== */
+
   const nextSlide = useCallback(() => {
-    if (currentSlide < totalSlides) {
-      setCurrentSlide(currentSlide + 1);
-    }
-  }, [currentSlide, totalSlides]);
-
-  const prevSlide = useCallback(() => {
-    if (currentSlide > 1) {
-      setCurrentSlide(currentSlide - 1);
-    }
-  }, [currentSlide]);
-
-  const goToSlide = useCallback((slideNumber) => {
-    setCurrentSlide(slideNumber);
+    setCurrentSlide((prev) => (prev < TOTAL_SLIDES ? prev + 1 : prev));
   }, []);
 
-  const toggleSlideshowMode = () => {
-    setIsSlideshowMode(!isSlideshowMode);
-    if (!isSlideshowMode && document.documentElement.requestFullscreen) {
-      document.documentElement.requestFullscreen();
-    } else if (isSlideshowMode && document.exitFullscreen) {
-      document.exitFullscreen();
-    }
-  };
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev > 1 ? prev - 1 : prev));
+  }, []);
 
-  // Keyboard navigation
+  const goToSlide = useCallback((slide) => {
+    setCurrentSlide(slide);
+  }, []);
+
+  /* =====================
+     Fullscreen / Slideshow
+     ===================== */
+
+  const toggleSlideshowMode = useCallback(() => {
+    if (!document.fullscreenElement) {
+      try {
+        document.documentElement.requestFullscreen();
+        setIsSlideshowMode(true);
+      } catch (err) {
+        console.warn('Fullscreen denied:', err);
+        setIsSlideshowMode(true);
+      }
+    } else {
+      try {
+        document.exitFullscreen();
+      } catch (err) {
+        console.warn('Exit fullscreen denied:', err);
+      }
+      setIsSlideshowMode(false);
+    }
+  }, []);
+
+  /* =====================
+     Keyboard navigation
+     ===================== */
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
         nextSlide();
       } else if (e.key === 'ArrowLeft') {
         prevSlide();
-      } else if (e.key === 'Escape') {
-        if (isSlideshowMode) {
-          toggleSlideshowMode();
-        }
-      } else if (e.key === 'F5' || e.key === 'f') {
+      } else if (e.key === 'Escape' && isSlideshowMode) {
+        toggleSlideshowMode();
+      } else if (e.key === 'F5' || e.key.toLowerCase() === 'f') {
+        e.preventDefault();
         toggleSlideshowMode();
       } else if (e.key >= '1' && e.key <= '9') {
-        const slideNum = parseInt(e.key);
-        if (slideNum <= totalSlides) {
+        const slideNum = Number(e.key);
+        if (slideNum <= TOTAL_SLIDES) {
           goToSlide(slideNum);
         }
       }
@@ -70,9 +87,12 @@ const Presentation = () => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [nextSlide, prevSlide, goToSlide, totalSlides, isSlideshowMode, toggleSlideshowMode]);
+  }, [nextSlide, prevSlide, goToSlide, toggleSlideshowMode, isSlideshowMode]);
 
-  // Handle fullscreen change
+  /* =====================
+     Fullscreen exit sync
+     ===================== */
+
   useEffect(() => {
     const handleFullscreenChange = () => {
       if (!document.fullscreenElement) {
@@ -81,93 +101,97 @@ const Presentation = () => {
     };
 
     document.addEventListener('fullscreenchange', handleFullscreenChange);
-    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    return () =>
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
   }, []);
+
+  /* =====================
+     Slides list
+     ===================== */
+
+  const slides = [
+    <Slide1 />,
+    <Slide2 />,
+    <Slide3 />,
+    <Slide4 />,
+    <Slide5 />,
+    <Slide6 />,
+    <Slide7 />,
+    <Slide8 />,
+    <Slide9 />,
+    <Slide10 />,
+    <Slide11 />,
+    <Slide12 />,
+    <Slide13 />,
+    <Slide14 />,
+    <Slide15 />
+  ];
 
   return (
     <div className={`presentation-container ${isSlideshowMode ? 'slideshow-mode' : ''}`}>
-      {/* Render current slide */}
-      {currentSlide === 1 && <Slide1 isSlideshowMode={isSlideshowMode} />}
-      {currentSlide === 2 && <Slide2 isSlideshowMode={isSlideshowMode} />}
-      {currentSlide === 3 && <Slide3 isSlideshowMode={isSlideshowMode} />}
-      {currentSlide === 4 && <Slide4 isSlideshowMode={isSlideshowMode} />}
-      {currentSlide === 5 && <Slide5 isSlideshowMode={isSlideshowMode} />}
-      {currentSlide === 6 && <Slide6 isSlideshowMode={isSlideshowMode} />}
-      {currentSlide === 7 && <Slide7 isSlideshowMode={isSlideshowMode} />}
-      {currentSlide === 8 && <Slide8 isSlideshowMode={isSlideshowMode} />}
-      {currentSlide === 9 && <Slide9 isSlideshowMode={isSlideshowMode} />}
-      {currentSlide === 10 && <Slide10 isSlideshowMode={isSlideshowMode} />}
-      {currentSlide === 11 && <Slide11 isSlideshowMode={isSlideshowMode} />}
-      {currentSlide === 12 && <Slide12 isSlideshowMode={isSlideshowMode} />}
-      {currentSlide === 13 && <Slide13 isSlideshowMode={isSlideshowMode} />}
-      {currentSlide === 14 && <Slide14 isSlideshowMode={isSlideshowMode} />}
-      {currentSlide === 15 && <Slide15 isSlideshowMode={isSlideshowMode} />}
-      
-      {/* ... other slides with isSlideshowMode prop */}
-      
-      {/* Slideshow Mode Overlay */}
+      {React.cloneElement(slides[currentSlide - 1], { isSlideshowMode })}
+
+      {/* Slideshow overlay */}
       {isSlideshowMode && (
         <div className="slideshow-overlay">
           <div className="slideshow-timer">
             <span className="current-slide">{currentSlide}</span>
-            <span className="total-slides">/{totalSlides}</span>
+            <span className="total-slides">/{TOTAL_SLIDES}</span>
           </div>
           <div className="slideshow-help">
-            <span>← → : Navigate</span>
-            <span>ESC : Exit</span>
-            <span>F : Fullscreen</span>
+            <span>← → Navigate</span>
+            <span>ESC Exit</span>
+            <span>F Fullscreen</span>
           </div>
         </div>
       )}
-      
-      {/* Navigation Buttons - Hidden in slideshow mode */}
+
+      {/* Controls (hidden in slideshow mode) */}
       {!isSlideshowMode && (
-        <div className="navigation-buttons">
-          <button 
-            onClick={prevSlide}
-            disabled={currentSlide === 1}
-            className="nav-button prev-button"
-          >
-            <i className="fas fa-chevron-left"></i> Previous
-          </button>
-          
-          <div className="slide-indicators">
-            {[...Array(totalSlides)].map((_, index) => (
-              <button
-                key={index + 1}
-                onClick={() => goToSlide(index + 1)}
-                className={`slide-indicator ${currentSlide === index + 1 ? 'active' : ''}`}
-              >
-                {index + 1}
-              </button>
-            ))}
+        <>
+          <div className="navigation-buttons">
+            <button
+              onClick={prevSlide}
+              disabled={currentSlide === 1}
+              className="nav-button prev-button"
+            >
+              ◀ Previous
+            </button>
+
+            <div className="slide-indicators">
+              {Array.from({ length: TOTAL_SLIDES }, (_, i) => (
+                <button
+                  key={i + 1}
+                  onClick={() => goToSlide(i + 1)}
+                  className={`slide-indicator ${currentSlide === i + 1 ? 'active' : ''}`}
+                >
+                  {i + 1}
+                </button>
+              ))}
+            </div>
+
+            <button
+              onClick={nextSlide}
+              disabled={currentSlide === TOTAL_SLIDES}
+              className="nav-button next-button"
+            >
+              Next ▶
+            </button>
+
+            <button
+              onClick={toggleSlideshowMode}
+              className="nav-button slideshow-button"
+            >
+              ⛶ Slideshow
+            </button>
           </div>
-          
-          <button 
-            onClick={nextSlide}
-            disabled={currentSlide === totalSlides}
-            className="nav-button next-button"
-          >
-            Next <i className="fas fa-chevron-right"></i>
-          </button>
 
-          {/* Slideshow Button */}
-          <button 
-            onClick={toggleSlideshowMode}
-            className="nav-button slideshow-button"
-          >
-            <i className="fas fa-expand"></i> Slideshow
-          </button>
-        </div>
-      )}
-
-      {/* Keyboard shortcut hint - Hidden in slideshow mode */}
-      {!isSlideshowMode && (
-        <div className="keyboard-hint">
-          <span>Use ← → arrows, Space, or Enter to navigate</span>
-          <span style={{ marginLeft: '10px', color: '#EE0000' }}>|</span>
-          <span style={{ marginLeft: '10px' }}>F: Start Slideshow</span>
-        </div>
+          <div className="keyboard-hint">
+            <span>← → Space Enter</span>
+            <span style={{ margin: '0 10px', color: '#EE0000' }}>|</span>
+            <span>F Slideshow</span>
+          </div>
+        </>
       )}
     </div>
   );
