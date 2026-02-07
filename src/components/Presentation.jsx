@@ -55,7 +55,7 @@ const Presentation = () => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentSlide]);
+  }, [nextSlide, prevSlide]);
 
   return (
     <div className="presentation-container">
