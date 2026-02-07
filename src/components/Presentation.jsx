@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react'; // Add useCallback
 import './Presentation.css';
 import Slide1 from './Slide1';
 import Slide2 from './Slide2';
 import Slide3 from './Slide3';
 import Slide4 from './Slide4';
-import Slide5 from './Slide5'; // Import more slides as you create them
+import Slide5 from './Slide5';
 import Slide6 from './Slide6';
 import Slide7 from './Slide7';
 import Slide8 from './Slide8';
@@ -16,30 +16,29 @@ import Slide13 from './Slide13';
 import Slide14 from './Slide14';
 import Slide15 from './Slide15';
 
-
-
 const Presentation = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
-  const totalSlides = 15; // Update this as you add more slides
+  const totalSlides = 15;
 
-  const nextSlide = () => {
+  // Wrap functions with useCallback
+  const nextSlide = useCallback(() => {
     if (currentSlide < totalSlides) {
       setCurrentSlide(currentSlide + 1);
     }
-  };
+  }, [currentSlide, totalSlides]); // Add dependencies
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     if (currentSlide > 1) {
       setCurrentSlide(currentSlide - 1);
     }
-  };
+  }, [currentSlide]); // Add dependency
 
-  const goToSlide = (slideNumber) => {
+  const goToSlide = useCallback((slideNumber) => {
     setCurrentSlide(slideNumber);
-  };
+  }, []); // No dependencies needed
 
   // Keyboard navigation
-  React.useEffect(() => {
+  useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'ArrowRight' || e.key === ' ') {
         nextSlide();
@@ -55,29 +54,27 @@ const Presentation = () => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [nextSlide, prevSlide]);
+  }, [nextSlide, prevSlide, goToSlide, totalSlides]); // Add all dependencies
 
   return (
     <div className="presentation-container">
       {/* Render current slide */}
       {currentSlide === 1 && <Slide1 />}
       {currentSlide === 2 && <Slide2 />}
-        {currentSlide === 3 && <Slide3 />}
-        {currentSlide === 4 && <Slide4 />}
-        {currentSlide === 5 && <Slide5 />}
-        {currentSlide === 6 && <Slide6 />}
-        {currentSlide === 7 && <Slide7 />}
-        {currentSlide === 8 && <Slide8 />}
-        {currentSlide === 9 && <Slide9 />}
-        {currentSlide === 10 && <Slide10 />}
-        {currentSlide === 11 && <Slide11 />}
-        {currentSlide === 12 && <Slide12 />}
-        {currentSlide === 13 && <Slide13 />}
-        {currentSlide === 14 && <Slide14 />}
-        {currentSlide === 15 && <Slide15 />}
+      {currentSlide === 3 && <Slide3 />}
+      {currentSlide === 4 && <Slide4 />}
+      {currentSlide === 5 && <Slide5 />}
+      {currentSlide === 6 && <Slide6 />}
+      {currentSlide === 7 && <Slide7 />}
+      {currentSlide === 8 && <Slide8 />}
+      {currentSlide === 9 && <Slide9 />}
+      {currentSlide === 10 && <Slide10 />}
+      {currentSlide === 11 && <Slide11 />}
+      {currentSlide === 12 && <Slide12 />}
+      {currentSlide === 13 && <Slide13 />}
+      {currentSlide === 14 && <Slide14 />}
+      {currentSlide === 15 && <Slide15 />}
       
-      {/* Add more slides here */}
-
       {/* Navigation Buttons */}
       <div className="navigation-buttons">
         <button 
