@@ -1,0 +1,110 @@
+.presentation-container {
+  margin: 0;
+  padding: 0;
+  background-color: #151515;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(15, 15, 15, 0.9);
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #1e1e1e;
+  color: white;
+  border: 1px solid #333;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.nav-button:hover:not(:disabled) {
+  background: #2a2a2a;
+  border-color: #EE0000;
+}
+
+.nav-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.next-button {
+  background: #EE0000;
+  border-color: #EE0000;
+}
+
+.next-button:hover:not(:disabled) {
+  background: #ff3333;
+}
+
+/* Slide Indicators */
+.slide-indicators {
+  display: flex;
+  gap: 6px;
+}
+
+.slide-indicator {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: #1e1e1e;
+  color: #9ca3af;
+  border: 1px solid #333;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.slide-indicator:hover {
+  background: #2a2a2a;
+  border-color: #555;
+}
+
+.slide-indicator.active {
+  background: #EE0000;
+  border-color: #EE0000;
+  color: white;
+}
+
+/* Keyboard hint */
+.keyboard-hint {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(15, 15, 15, 0.9);
+  color: #9ca3af;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  border: 1px solid #333;
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+}
