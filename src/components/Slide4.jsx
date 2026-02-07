@@ -1,9 +1,10 @@
 import React from 'react';
 import './Slide4.css';
 
-const Slide4 = () => {
+
+const Slide4 = ({ isSlideshowMode }) => {
   return (
-    <div className="slide-container">
+    <div className={`slide-container ${isSlideshowMode ? 'slideshow-mode' : ''}`}>
       {/* Background Pattern */}
       <div className="bg-grid"></div>
       

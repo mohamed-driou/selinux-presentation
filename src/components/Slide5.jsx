@@ -1,9 +1,10 @@
 import React from 'react';
 import './Slide5.css';
 
-const Slide5 = () => {
+
+const Slide5 = ({ isSlideshowMode }) => {
   return (
-    <div className="slide-container">
+    <div className={`slide-container ${isSlideshowMode ? 'slideshow-mode' : ''}`}>
       {/* Background Grid */}
       <div className="bg-grid"></div>
       
@@ -92,9 +93,9 @@ const Slide5 = () => {
         <div className="slide-dots">
           <span className="dot"></span>
           <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
           <span className="dot active"></span>
+          <span className="dot"></span>
+          <span className="dot"></span>
           <span className="dot"></span>
           <span className="dot"></span>
           <span className="dot"></span>
