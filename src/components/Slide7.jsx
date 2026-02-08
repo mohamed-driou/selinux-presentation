@@ -56,7 +56,10 @@ const Slide7 = ({ isSlideshowMode, isDarkTheme = true }) => {
             {/* Roles Grid - moved up */}
             <div className="roles-grid-adjusted">
               {/* system_r */}
-              <div className="role-card system-role">
+              <div 
+                className="role-card system-role"
+                style={{ '--order': 0 }}
+              >
                 <div className="role-icon-wrapper">
                   <i className="fa-solid fa-server"></i>
                 </div>
@@ -72,7 +75,10 @@ const Slide7 = ({ isSlideshowMode, isDarkTheme = true }) => {
               </div>
               
               {/* user_r */}
-              <div className="role-card user-role">
+              <div 
+                className="role-card user-role"
+                style={{ '--order': 1 }}
+              >
                 <div className="role-icon-wrapper">
                   <i className="fa-solid fa-user"></i>
                 </div>
@@ -88,7 +94,10 @@ const Slide7 = ({ isSlideshowMode, isDarkTheme = true }) => {
               </div>
               
               {/* staff_r */}
-              <div className="role-card staff-role">
+              <div 
+                className="role-card staff-role"
+                style={{ '--order': 2 }}
+              >
                 <div className="role-icon-wrapper">
                   <i className="fa-solid fa-user-gear"></i>
                 </div>
@@ -104,7 +113,10 @@ const Slide7 = ({ isSlideshowMode, isDarkTheme = true }) => {
               </div>
               
               {/* admin_r */}
-              <div className="role-card admin-role">
+              <div 
+                className="role-card admin-role"
+                style={{ '--order': 3 }}
+              >
                 <div className="role-icon-wrapper">
                   <i className="fa-solid fa-user-tie"></i>
                 </div>

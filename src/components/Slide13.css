@@ -703,3 +703,182 @@
     width: 100%;
   }
 }
+
+/* Add to Slide13.css */
+
+/* Enhanced command cards */
+.command-card-compact,
+.command-card-full-compact {
+  animation: slideUp 0.5s ease-out backwards;
+  animation-delay: calc(var(--order, 0) * 0.1s);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  background: rgba(30, 30, 30, 0.9) !important;
+}
+
+.command-card-compact:hover,
+.command-card-full-compact:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  background: rgba(30, 30, 30, 0.95) !important;
+  border-width: 2px;
+}
+
+/* Enhanced command icons */
+.command-icon-wrapper {
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.command-card-compact:hover .command-icon-wrapper,
+.command-card-full-compact:hover .command-icon-wrapper {
+  transform: scale(1.2) rotate(10deg);
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 25px currentColor;
+}
+
+.command-icon-wrapper i {
+  transition: transform 0.3s ease;
+}
+
+.command-card-compact:hover .command-icon-wrapper i,
+.command-card-full-compact:hover .command-icon-wrapper i {
+  transform: scale(1.3);
+}
+
+/* Enhanced code blocks */
+.command-code-compact {
+  transition: all 0.3s ease;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Roboto Mono', monospace;
+  letter-spacing: -0.02em;
+}
+
+.command-card-compact:hover .command-code-compact,
+.command-card-full-compact:hover .command-code-compact {
+  background: rgba(38, 38, 38, 0.95);
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.01);
+}
+
+/* Enhanced number box */
+.number-box-moved-up {
+  animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+  background: rgba(30, 30, 30, 0.9) !important;
+}
+
+.number-box-moved-up:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 60px rgba(238, 0, 0, 0.3);
+  background: rgba(30, 30, 30, 0.95) !important;
+  animation: glow 2s infinite;
+}
+
+/* Enhanced info box */
+.info-box-moved-up {
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+  background: rgba(30, 30, 30, 0.9) !important;
+}
+
+.info-box-moved-up:hover {
+  transform: translateX(10px);
+  box-shadow: 0 10px 30px rgba(238, 0, 0, 0.2);
+  background: rgba(30, 30, 30, 0.95) !important;
+}
+
+/* Enhanced header */
+.slide13-header {
+  backdrop-filter: blur(8px);
+  background: rgba(26, 26, 26, 0.9) !important;
+  transition: all 0.3s ease;
+}
+
+.slide13-header:hover {
+  background: rgba(26, 26, 26, 0.95) !important;
+}
+
+/* Command-specific hover shadows */
+.list-command:hover {
+  box-shadow: 0 20px 40px rgba(22, 101, 52, 0.3) !important;
+}
+
+.enable-command:hover {
+  box-shadow: 0 20px 40px rgba(30, 64, 175, 0.3) !important;
+}
+
+.disable-command:hover {
+  box-shadow: 0 20px 40px rgba(153, 27, 27, 0.3) !important;
+}
+
+/* Enhanced tags */
+.command-tag {
+  transition: all 0.3s ease;
+}
+
+.command-card-compact:hover .command-tag,
+.command-card-full-compact:hover .command-tag {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Light theme adjustments */
+.slide-container.light-theme .command-card-compact,
+.slide-container.light-theme .command-card-full-compact {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+.slide-container.light-theme .command-card-compact:hover,
+.slide-container.light-theme .command-card-full-compact:hover {
+  background: rgba(248, 250, 252, 0.95) !important;
+}
+
+.slide-container.light-theme .command-code-compact {
+  background: rgba(241, 245, 249, 0.9);
+  color: #334155;
+}
+
+.slide-container.light-theme .command-card-compact:hover .command-code-compact,
+.slide-container.light-theme .command-card-full-compact:hover .command-code-compact {
+  background: rgba(241, 245, 249, 0.95);
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.slide-container.light-theme .number-box-moved-up {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+.slide-container.light-theme .number-box-moved-up:hover {
+  background: rgba(248, 250, 252, 0.95) !important;
+  box-shadow: 0 20px 60px rgba(238, 0, 0, 0.2);
+}
+
+.slide-container.light-theme .info-box-moved-up {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+.slide-container.light-theme .info-box-moved-up:hover {
+  background: rgba(248, 250, 252, 0.95) !important;
+  box-shadow: 0 10px 30px rgba(238, 0, 0, 0.15);
+}
+
+.slide-container.light-theme .slide13-header {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+.slide-container.light-theme .slide13-header:hover {
+  background: rgba(248, 250, 252, 0.95) !important;
+}
+
+/* Command-specific light theme hover shadows */
+.slide-container.light-theme .list-command:hover {
+  box-shadow: 0 20px 40px rgba(22, 101, 52, 0.2) !important;
+}
+
+.slide-container.light-theme .enable-command:hover {
+  box-shadow: 0 20px 40px rgba(30, 64, 175, 0.2) !important;
+}
+
+.slide-container.light-theme .disable-command:hover {
+  box-shadow: 0 20px 40px rgba(153, 27, 27, 0.2) !important;
+}

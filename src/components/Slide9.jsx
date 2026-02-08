@@ -62,7 +62,10 @@ const Slide9 = ({ isSlideshowMode, isDarkTheme = true }) => {
             {/* Types Grid - Moved up */}
             <div className="types-grid-compact">
               {/* httpd_t */}
-              <div className="type-card process-type">
+              <div 
+                className="type-card process-type"
+                style={{ '--order': 0 }}
+              >
                 <div className="type-icon-wrapper">
                   <i className="fa-solid fa-globe"></i>
                 </div>
@@ -78,7 +81,10 @@ const Slide9 = ({ isSlideshowMode, isDarkTheme = true }) => {
               </div>
               
               {/* httpd_sys_content_t */}
-              <div className="type-card file-type">
+              <div 
+                className="type-card file-type"
+                style={{ '--order': 1 }}
+              >
                 <div className="type-icon-wrapper">
                   <i className="fa-solid fa-file"></i>
                 </div>

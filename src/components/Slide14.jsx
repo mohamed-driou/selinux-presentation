@@ -14,12 +14,12 @@ const Slide14 = ({ isSlideshowMode, isDarkTheme = true }) => {
       <div className="header">
         <div className="red-vertical-bar"></div>
         <div className="header-text">
-          <p className="header-subtitle">Transition</p>
-          <h1 className="header-title">Conclusion</h1>
+          <p className="header-subtitle">Summary</p>
+          <h1 className="header-title">Key Takeaways</h1>
         </div>
         {/* Icon */}
         <div className="header-icon">
-          <i className="fa-solid fa-arrow-right"></i>
+          <i className="fa-solid fa-flag-checkered"></i>
         </div>
       </div>
       
@@ -28,14 +28,14 @@ const Slide14 = ({ isSlideshowMode, isDarkTheme = true }) => {
         {/* Full Center Content */}
         <div className="center-content">
           <div className="text-center">
-            {/* Large "CONCLUSION" Text */}
-            <div className="title-wrapper">
-              <div className="main-title-conclusion">
+            {/* Big Conclusion Text */}
+            <div className="conclusion-wrapper">
+              <div className="conclusion-title">
                 CONCLUSION
               </div>
               
               {/* Subtle shadow effect */}
-              <div className="title-shadow-conclusion">
+              <div className="conclusion-shadow">
                 CONCLUSION
               </div>
             </div>

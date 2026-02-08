@@ -73,7 +73,10 @@ const Slide11 = ({ isSlideshowMode, isDarkTheme = true }) => {
             {/* Levels Grid - Moved up */}
             <div className="levels-grid-compact">
               {/* Niveau standard */}
-              <div className="level-card standard-level">
+              <div 
+                className="level-card standard-level"
+                style={{ '--order': 0 }}
+              >
                 <div className="level-icon-wrapper">
                   <i className="fa-solid fa-layer-group"></i>
                 </div>
@@ -89,7 +92,10 @@ const Slide11 = ({ isSlideshowMode, isDarkTheme = true }) => {
               </div>
               
               {/* Niveau avec catégories */}
-              <div className="level-card classified-level">
+              <div 
+                className="level-card classified-level"
+                style={{ '--order': 1 }}
+              >
                 <div className="level-icon-wrapper">
                   <i className="fa-solid fa-lock"></i>
                 </div>

@@ -45,6 +45,8 @@
 
 .linux-icon i {
   font-size: 450px;
+  animation: iconRotate 80s linear infinite;
+  transition: opacity 0.5s ease;
 }
 
 /* Shield Icon Background */
@@ -58,6 +60,7 @@
 
 .shield-icon i {
   font-size: 200px;
+  animation: pulse 5s ease-in-out infinite;
 }
 
 /* Header */
@@ -70,6 +73,13 @@
   padding: 0 64px;
   position: relative;
   z-index: 10;
+  backdrop-filter: blur(8px);
+  background: rgba(26, 26, 26, 0.9) !important;
+  transition: all 0.3s ease;
+}
+
+.header:hover {
+  background: rgba(26, 26, 26, 0.95) !important;
 }
 
 .red-vertical-bar {
@@ -77,6 +87,12 @@
   height: 48px;
   background-color: #EE0000;
   margin-right: 24px;
+  transition: all 0.3s ease;
+}
+
+.header:hover .red-vertical-bar {
+  transform: scaleY(1.2);
+  box-shadow: 0 0 10px rgba(238, 0, 0, 0.5);
 }
 
 .header-title-wrapper {
@@ -93,11 +109,21 @@
 
 .header-icon {
   opacity: 0.2;
+  transition: all 0.5s ease;
+}
+
+.header:hover .header-icon {
+  opacity: 0.3;
 }
 
 .header-icon i {
   font-size: 36px;
   color: white;
+  transition: transform 0.5s ease;
+}
+
+.header:hover .header-icon i {
+  transform: rotate(10deg);
 }
 
 /* Main Content Container */
@@ -120,10 +146,20 @@
   border: 1px solid #333;
   padding: 48px;
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* Keep as hidden */
+  animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+  background: rgba(26, 26, 26, 0.9) !important;
 }
 
-/* Red Circle Decoration */
+.content-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(238, 0, 0, 0.2);
+  background: rgba(26, 26, 26, 0.95) !important;
+}
+
+/* Red Circle Decoration - FIXED */
 .red-circle-decoration {
   position: absolute;
   top: 0;
@@ -133,6 +169,19 @@
   background-color: #EE0000;
   opacity: 0.05;
   border-bottom-left-radius: 100%;
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1;
+}
+
+/* Enhanced red circle decoration - FIXED (no glitching) */
+.content-card:hover .red-circle-decoration {
+  opacity: 0.08;
+  transform: rotate(15deg);
+  width: 132px;
+  height: 132px;
+  top: -2px;
+  right: -2px;
+  filter: blur(1px);
 }
 
 /* Card Header Section */
@@ -140,6 +189,10 @@
   display: flex;
   align-items: center;
   margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 0.6s ease-out backwards;
+  animation-delay: 0.2s;
 }
 
 .card-icon-wrapper {
@@ -152,11 +205,23 @@
   align-items: center;
   justify-content: center;
   margin-right: 24px;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.content-card:hover .card-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 20px rgba(238, 0, 0, 0.3);
+  animation: pulse 2s infinite;
 }
 
 .card-icon-wrapper i {
   font-size: 24px;
   color: #EE0000;
+  transition: transform 0.3s ease;
+}
+
+.content-card:hover .card-icon-wrapper i {
+  transform: scale(1.2);
 }
 
 .card-title-section {
@@ -177,6 +242,17 @@
   padding: 32px;
   border-radius: 0.5rem;
   border-left: 4px solid #EE0000;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease;
+  animation: fadeIn 0.6s ease-out backwards;
+  animation-delay: 0.4s;
+}
+
+.content-card:hover .content-box {
+  transform: translateX(10px);
+  box-shadow: inset 5px 0 0 #EE0000, 0 10px 20px rgba(0, 0, 0, 0.3);
+  background-color: rgba(38, 38, 38, 0.95);
 }
 
 .content-text {
@@ -184,11 +260,22 @@
   color: white;
   line-height: 1.6;
   text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.content-card:hover .content-text {
+  transform: translateX(5px);
 }
 
 .highlight-text {
   color: #EE0000;
   font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+
+.content-card:hover .highlight-text {
+  animation: pulse 1.5s ease-in-out infinite;
 }
 
 /* Bottom Bar */
@@ -204,6 +291,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
+  z-index: 10;
 }
 
 .bottom-left-text {
@@ -230,11 +318,60 @@
   height: 0.375rem;
   border-radius: 50%;
   background-color: #333;
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  transform: scale(1.5);
+  background-color: #EE0000 !important;
 }
 
 .dot.active {
   background-color: #EE0000;
+  animation: pulse 2s infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+@keyframes iconRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Responsive adjustments */
@@ -262,11 +399,19 @@
   .content-text {
     font-size: 1.25rem;
   }
+  
+  .red-circle-decoration {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .content-card:hover .red-circle-decoration {
+    width: 104px;
+    height: 104px;
+  }
 }
 
-/* Add at the end of each SlideX.css file */
-
-/* Responsive adjustments for slideshow mode */
+/* Slideshow mode adjustments */
 .slide-container.slideshow-mode {
   transform: scale(1.2);
   transform-origin: center;
@@ -417,6 +562,40 @@
   background-color: #EE0000;
 }
 
+/* Light theme hover effects */
+.slide-container.light-theme .content-card {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+.slide-container.light-theme .content-card:hover {
+  background: rgba(248, 250, 252, 0.95) !important;
+  box-shadow: 0 25px 50px rgba(238, 0, 0, 0.15);
+}
+
+.slide-container.light-theme .content-box {
+  background: rgba(241, 245, 249, 0.9);
+}
+
+.slide-container.light-theme .content-card:hover .content-box {
+  background: rgba(241, 245, 249, 0.95);
+}
+
+.slide-container.light-theme .header {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+.slide-container.light-theme .header:hover {
+  background: rgba(248, 250, 252, 0.95) !important;
+}
+
+.slide-container.light-theme .header:hover .red-vertical-bar {
+  box-shadow: 0 0 10px rgba(238, 0, 0, 0.3);
+}
+
+.slide-container.light-theme .content-card:hover .card-icon-wrapper {
+  box-shadow: 0 0 20px rgba(238, 0, 0, 0.2);
+}
+
 /* Responsive adjustments for light theme */
 @media (max-width: 1300px) {
   .slide-container.light-theme {
@@ -442,4 +621,9 @@
   .slide-container.light-theme .content-text {
     font-size: 1.25rem;
   }
+}
+
+/* Global transition for smooth animations */
+* {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }

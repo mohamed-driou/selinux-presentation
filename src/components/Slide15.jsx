@@ -48,17 +48,26 @@ const Slide15 = ({ isSlideshowMode, isDarkTheme = true }) => {
               
               {/* Key Features Grid */}
               <div className="features-grid">
-                <div className="feature-card protection">
+                <div 
+                  className="feature-card protection"
+                  style={{ '--order': 0 }}
+                >
                   <i className="fa-solid fa-shield-alt feature-icon"></i>
                   <h4 className="feature-title">Protection Avancée</h4>
                   <p className="feature-description">Contre les attaques complexes</p>
                 </div>
-                <div className="feature-card control">
+                <div 
+                  className="feature-card control"
+                  style={{ '--order': 1 }}
+                >
                   <i className="fa-solid fa-sliders-h feature-icon"></i>
                   <h4 className="feature-title">Contrôle Fin</h4>
                   <p className="feature-description">Permissions granulaires</p>
                 </div>
-                <div className="feature-card configuration">
+                <div 
+                  className="feature-card configuration"
+                  style={{ '--order': 2 }}
+                >
                   <i className="fa-solid fa-cogs feature-icon"></i>
                   <h4 className="feature-title">Configuration</h4>
                   <p className="feature-description">Réduction des erreurs</p>

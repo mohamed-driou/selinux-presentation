@@ -748,3 +748,175 @@
     gap: 12px;
   }
 }
+
+/* Add to Slide11.css */
+
+/* Enhanced level cards */
+.level-card {
+  animation: slideUp 0.5s ease-out backwards;
+  animation-delay: calc(var(--order, 0) * 0.1s);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  background: rgba(30, 30, 30, 0.9) !important;
+}
+
+.level-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  background: rgba(30, 30, 30, 0.95) !important;
+  border-width: 2px;
+}
+
+/* Enhanced level icons */
+.level-icon-wrapper {
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.level-card:hover .level-icon-wrapper {
+  transform: scale(1.2) rotate(10deg);
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 25px currentColor;
+}
+
+.level-icon-wrapper i {
+  transition: transform 0.3s ease;
+}
+
+.level-card:hover .level-icon-wrapper i {
+  transform: scale(1.3);
+}
+
+/* Enhanced number box */
+.number-box-adjusted {
+  animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+  background: rgba(30, 30, 30, 0.9) !important;
+}
+
+.number-box-adjusted:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 60px rgba(238, 0, 0, 0.3);
+  background: rgba(30, 30, 30, 0.95) !important;
+  animation: glow 2s infinite;
+}
+
+/* Enhanced info box */
+.info-box-adjusted {
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+  background: rgba(30, 30, 30, 0.9) !important;
+}
+
+.info-box-adjusted:hover {
+  transform: translateX(10px);
+  box-shadow: 0 10px 30px rgba(238, 0, 0, 0.2);
+  background: rgba(30, 30, 30, 0.95) !important;
+}
+
+/* Enhanced environment box */
+.environment-box-compact {
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+  background: rgba(42, 26, 26, 0.5) !important;
+}
+
+.environment-box-compact:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 35px rgba(238, 0, 0, 0.3);
+  background: rgba(42, 26, 26, 0.6) !important;
+  border-width: 2px;
+}
+
+/* Enhanced header */
+.slide11-header {
+  backdrop-filter: blur(8px);
+  background: rgba(26, 26, 26, 0.9) !important;
+  transition: all 0.3s ease;
+}
+
+.slide11-header:hover {
+  background: rgba(26, 26, 26, 0.95) !important;
+}
+
+/* Level-specific hover shadows */
+.standard-level:hover {
+  box-shadow: 0 20px 40px rgba(30, 64, 175, 0.3) !important;
+}
+
+.classified-level:hover {
+  box-shadow: 0 20px 40px rgba(153, 27, 27, 0.3) !important;
+}
+
+/* Enhanced environment icon */
+.environment-icon {
+  transition: all 0.3s ease;
+}
+
+.environment-box-compact:hover .environment-icon {
+  transform: scale(1.2) rotate(10deg);
+  animation: pulse 1.5s infinite;
+}
+
+/* Enhanced tags */
+.level-tag {
+  transition: all 0.3s ease;
+}
+
+.level-card:hover .level-tag {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Light theme adjustments */
+.slide-container.light-theme .level-card {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+.slide-container.light-theme .level-card:hover {
+  background: rgba(248, 250, 252, 0.95) !important;
+}
+
+.slide-container.light-theme .number-box-adjusted {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+.slide-container.light-theme .number-box-adjusted:hover {
+  background: rgba(248, 250, 252, 0.95) !important;
+  box-shadow: 0 20px 60px rgba(238, 0, 0, 0.2);
+}
+
+.slide-container.light-theme .info-box-adjusted {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+.slide-container.light-theme .info-box-adjusted:hover {
+  background: rgba(248, 250, 252, 0.95) !important;
+  box-shadow: 0 10px 30px rgba(238, 0, 0, 0.15);
+}
+
+.slide-container.light-theme .environment-box-compact {
+  background: rgba(254, 242, 242, 0.8) !important;
+}
+
+.slide-container.light-theme .environment-box-compact:hover {
+  background: rgba(254, 242, 242, 0.9) !important;
+  box-shadow: 0 15px 35px rgba(238, 0, 0, 0.2);
+}
+
+.slide-container.light-theme .slide11-header {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+.slide-container.light-theme .slide11-header:hover {
+  background: rgba(248, 250, 252, 0.95) !important;
+}
+
+/* Level-specific light theme hover shadows */
+.slide-container.light-theme .standard-level:hover {
+  box-shadow: 0 20px 40px rgba(30, 64, 175, 0.2) !important;
+}
+
+.slide-container.light-theme .classified-level:hover {
+  box-shadow: 0 20px 40px rgba(153, 27, 27, 0.2) !important;
+}

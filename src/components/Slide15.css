@@ -449,3 +449,160 @@
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
   animation: slideIn 0.3s ease-out;
 }
+
+/* Add to Slide15.css */
+
+/* Enhanced feature cards */
+.feature-card {
+  animation: slideUp 0.6s ease-out backwards;
+  animation-delay: calc(var(--order, 0) * 0.2s);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+}
+
+.feature-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  border-width: 2px;
+  z-index: 10;
+}
+
+/* Enhanced feature icons */
+.feature-icon {
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.3) rotate(15deg);
+  animation: pulse 1.5s infinite;
+  text-shadow: 0 0 20px currentColor;
+}
+
+/* Enhanced conclusion text container */
+.conclusion-text-container {
+  animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+  background: rgba(30, 30, 30, 0.9) !important;
+}
+
+.conclusion-text-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(238, 0, 0, 0.3);
+  background: rgba(30, 30, 30, 0.95) !important;
+}
+
+/* Enhanced decorative shield */
+.decorative-shield {
+  animation: iconRotate 120s linear infinite;
+  transition: all 0.5s ease;
+}
+
+.conclusion-text-container:hover ~ .decorative-shield {
+  opacity: 0.08;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Enhanced header */
+.header {
+  backdrop-filter: blur(8px);
+  background: rgba(26, 26, 26, 0.9) !important;
+  transition: all 0.3s ease;
+}
+
+.header:hover {
+  background: rgba(26, 26, 26, 0.95) !important;
+}
+
+/* Feature-specific hover effects */
+.feature-card.protection:hover {
+  box-shadow: 0 25px 50px rgba(238, 0, 0, 0.3);
+  background: rgba(42, 26, 26, 0.95) !important;
+}
+
+.feature-card.control:hover {
+  box-shadow: 0 25px 50px rgba(16, 185, 129, 0.3);
+  background: rgba(26, 42, 31, 0.95) !important;
+}
+
+.feature-card.configuration:hover {
+  box-shadow: 0 25px 50px rgba(59, 130, 246, 0.3);
+  background: rgba(26, 31, 42, 0.95) !important;
+}
+
+/* Highlight text animation */
+.highlight-text {
+  position: relative;
+  display: inline-block;
+}
+
+.highlight-text::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #EE0000, transparent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.conclusion-text-container:hover .highlight-text::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Light theme adjustments */
+.slide-container.light-theme .conclusion-text-container {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+.slide-container.light-theme .conclusion-text-container:hover {
+  background: rgba(248, 250, 252, 0.95) !important;
+  box-shadow: 0 30px 60px rgba(238, 0, 0, 0.2);
+}
+
+.slide-container.light-theme .header {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+.slide-container.light-theme .header:hover {
+  background: rgba(248, 250, 252, 0.95) !important;
+}
+
+/* Feature-specific light theme hover effects */
+.slide-container.light-theme .feature-card.protection:hover {
+  box-shadow: 0 25px 50px rgba(238, 0, 0, 0.2);
+  background: rgba(254, 242, 242, 0.95) !important;
+}
+
+.slide-container.light-theme .feature-card.control:hover {
+  box-shadow: 0 25px 50px rgba(16, 185, 129, 0.2);
+  background: rgba(240, 253, 244, 0.95) !important;
+}
+
+.slide-container.light-theme .feature-card.configuration:hover {
+  box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
+  background: rgba(239, 246, 255, 0.95) !important;
+}
+
+/* Enhanced feature descriptions */
+.feature-description {
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-description {
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+/* Text highlight animation */
+.conclusion-text {
+  animation: fadeIn 1s ease-out;
+}
+
+.features-grid {
+  animation: fadeIn 1.2s ease-out;
+}

@@ -1,0 +1,552 @@
+/* Slide16.css - Restored animations with performance fixes */
+.slide16-container {
+  width: 1280px;
+  height: 720px;
+  background-color: #151515;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  /* Performance optimizations */
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Background Pattern */
+.slide16-bg-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(to right, #262626 1px, transparent 1px),
+    linear-gradient(to bottom, #262626 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Top Red Bar */
+.slide16-top-bar {
+  width: 100%;
+  height: 2px;
+  background-color: #EE0000;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.slide16-header {
+  height: 64px;
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #333;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  position: relative;
+  z-index: 10;
+}
+
+.slide16-red-vertical-bar {
+  width: 2px;
+  height: 32px;
+  background-color: #EE0000;
+  margin-right: 16px;
+}
+
+.slide16-header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.slide16-header-subtitle {
+  color: #EE0000;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  line-height: 1;
+}
+
+.slide16-header-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.slide16-header-icon {
+  margin-left: auto;
+  opacity: 0.2;
+}
+
+.slide16-header-icon i {
+  font-size: 24px;
+  color: white;
+}
+
+/* Main Content Wrapper */
+.slide16-main-content-wrapper {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Center Content */
+.slide16-center-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide16-text-center {
+  text-align: center;
+  width: 100%;
+}
+
+/* Big Thank You Text - HUGE 150px font for Slide16 */
+.slide16-thankyou-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 0 40px;
+}
+
+.slide16-thankyou-title {
+  font-size: 150px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: 0.01em;
+  line-height: 0.85;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  animation: slide16-title-float 3s ease-in-out infinite;
+  margin: 0;
+  padding: 0;
+  /* GPU acceleration for smooth animation */
+  transform: translateZ(0);
+}
+
+.slide16-thankyou-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 150px;
+  font-weight: 900;
+  color: #EE0000;
+  letter-spacing: 0.01em;
+  line-height: 0.85;
+  opacity: 0.15;
+  z-index: 0;
+  text-align: center;
+  transform: translate(10px, 10px);
+  animation: slide16-shadow-pulse 4s ease-in-out infinite;
+  filter: blur(2px);
+  margin: 0;
+  padding: 0;
+  /* GPU acceleration */
+  transform: translate3d(10px, 10px, 0);
+}
+
+/* Adjust line breaks for huge text */
+.slide16-thankyou-title br,
+.slide16-thankyou-shadow br {
+  display: block;
+  content: "";
+  margin-bottom: 10px;
+}
+
+/* Optimized animations - using transform instead of other properties */
+@keyframes slide16-title-float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -5px, 0);
+  }
+}
+
+@keyframes slide16-shadow-pulse {
+  0%, 100% {
+    opacity: 0.15;
+    transform: translate3d(10px, 10px, 0);
+  }
+  50% {
+    opacity: 0.25;
+    transform: translate3d(12px, 12px, 0);
+  }
+}
+
+/* Bottom Bar */
+.slide16-bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #0f0f0f;
+  border-top: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+/* Special glow effect for bottom bar in Slide16 */
+.slide16-bottom-bar::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(238, 0, 0, 0.3) 20%, 
+    rgba(238, 0, 0, 0.6) 50%, 
+    rgba(238, 0, 0, 0.3) 80%, 
+    transparent 100%);
+  animation: slide16-glow 3s ease-in-out infinite;
+}
+
+@keyframes slide16-glow {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments for HUGE text */
+@media (max-width: 1300px) {
+  .slide16-container {
+    transform: scale(0.8);
+    transform-origin: top left;
+  }
+  
+  .slide16-thankyou-title,
+  .slide16-thankyou-shadow {
+    font-size: 120px;
+    line-height: 0.85;
+  }
+}
+
+@media (max-width: 1024px) {
+  .slide16-thankyou-title,
+  .slide16-thankyou-shadow {
+    font-size: 100px;
+    line-height: 0.85;
+  }
+  
+  .slide16-thankyou-shadow {
+    transform: translate3d(8px, 8px, 0);
+  }
+  
+  @keyframes slide16-shadow-pulse {
+    0%, 100% {
+      opacity: 0.15;
+      transform: translate3d(8px, 8px, 0);
+    }
+    50% {
+      opacity: 0.25;
+      transform: translate3d(10px, 10px, 0);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .slide16-container {
+    transform: scale(0.6);
+    transform-origin: top left;
+  }
+  
+  .slide16-thankyou-title,
+  .slide16-thankyou-shadow {
+    font-size: 70px;
+    line-height: 0.85;
+  }
+  
+  .slide16-thankyou-shadow {
+    transform: translate3d(6px, 6px, 0);
+  }
+  
+  .slide16-thankyou-wrapper {
+    padding: 0 20px;
+  }
+  
+  @keyframes slide16-shadow-pulse {
+    0%, 100% {
+      opacity: 0.15;
+      transform: translate3d(6px, 6px, 0);
+    }
+    50% {
+      opacity: 0.25;
+      transform: translate3d(8px, 8px, 0);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .slide16-thankyou-title,
+  .slide16-thankyou-shadow {
+    font-size: 50px;
+    line-height: 0.9;
+  }
+  
+  @keyframes slide16-title-float {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -3px, 0);
+    }
+  }
+}
+
+/* SLIDESHOW MODE - OPTIMIZED */
+.slide16-container.slideshow-mode {
+  transform: scale(1.2);
+  transform-origin: center;
+  box-shadow: 0 0 200px rgba(238, 0, 0, 0.4);
+  /* Use hardware-accelerated properties */
+  animation: slide16-slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Prevent animation during slide transition */
+  animation-play-state: paused;
+}
+
+/* Apply animation only when slide becomes active */
+.slide16-container.slideshow-mode.slide-active {
+  animation-play-state: running;
+}
+
+/* Simplified entrance animation for better performance */
+@keyframes slide16-slideIn {
+  from {
+    opacity: 0.9;
+    transform: scale(1.15);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Responsive adjustments for slideshow */
+@media (max-width: 1600px) {
+  .slide16-container {
+    width: 100%;
+    max-width: 1280px;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+  
+  .slide16-container.slideshow-mode {
+    transform: scale(1.1);
+  }
+  
+  @keyframes slide16-slideIn {
+    from {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .slide16-container.slideshow-mode {
+    transform: scale(1);
+  }
+  
+  .slide16-thankyou-title,
+  .slide16-thankyou-shadow {
+    font-size: 110px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide16-container {
+    transform: scale(0.9);
+  }
+  
+  .slide16-container.slideshow-mode {
+    transform: scale(0.9);
+    max-width: 95vw;
+    max-height: 95vh;
+    animation: none; /* Remove animation on mobile for better performance */
+  }
+}
+
+/* Light Theme Styles for Slide16 */
+.slide16-container.light-theme {
+  background-color: #ffffff;
+  color: #1e293b;
+}
+
+.slide16-container.light-theme .slide16-bg-grid {
+  background-image: 
+    linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+    linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+  opacity: 0.4;
+}
+
+.slide16-container.light-theme .slide16-header {
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.slide16-container.light-theme .slide16-header-subtitle {
+  color: #EE0000;
+}
+
+.slide16-container.light-theme .slide16-header-title {
+  color: #1e293b;
+}
+
+.slide16-container.light-theme .slide16-header-icon i {
+  color: #64748b;
+  opacity: 0.3;
+}
+
+.slide16-container.light-theme .slide16-thankyou-title {
+  color: #1e293b;
+}
+
+.slide16-container.light-theme .slide16-thankyou-shadow {
+  color: #EE0000;
+  opacity: 0.12;
+}
+
+.slide16-container.light-theme .slide16-bottom-bar {
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Adjust shadow opacity for better visibility in light mode */
+.slide16-container.light-theme .slide16-thankyou-shadow {
+  opacity: 0.08;
+}
+
+/* Enhanced animations only for Slide16 - OPTIMIZED */
+.slide16-thankyou-wrapper {
+  animation: slide16-slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+
+@keyframes slide16-slideUp {
+  from {
+    opacity: 0.8;
+    transform: translate3d(0, 30px, 0) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.slide16-thankyou-title {
+  position: relative;
+  text-shadow: 0 2px 25px rgba(0, 0, 0, 0.5);
+}
+
+.slide16-header {
+  backdrop-filter: blur(12px);
+  background: rgba(26, 26, 26, 0.95) !important;
+  transition: all 0.3s ease;
+}
+
+.slide16-header:hover {
+  background: rgba(26, 26, 26, 0.98) !important;
+}
+
+.slide16-header-icon i {
+  transition: all 0.5s ease;
+  animation: slide16-icon-spin 20s linear infinite paused;
+}
+
+.slide16-header:hover .slide16-header-icon i {
+  animation-play-state: running;
+}
+
+@keyframes slide16-icon-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.slide16-red-vertical-bar {
+  transition: all 0.3s ease;
+}
+
+.slide16-header:hover .slide16-red-vertical-bar {
+  transform: scaleY(1.5);
+  box-shadow: 0 0 20px rgba(238, 0, 0, 0.7);
+  background: linear-gradient(to bottom, #ff0000, #EE0000, #ff0000);
+}
+
+/* Light theme adjustments */
+.slide16-container.light-theme .slide16-header {
+  background: rgba(248, 250, 252, 0.95) !important;
+}
+
+.slide16-container.light-theme .slide16-header:hover {
+  background: rgba(248, 250, 252, 0.98) !important;
+}
+
+/* Special text emphasis for HUGE font */
+.slide16-thankyou-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    #EE0000, 
+    transparent);
+  opacity: 0.5;
+  animation: slide16-line-grow 1s ease-out 0.5s backwards;
+}
+
+@keyframes slide16-line-grow {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100px;
+    opacity: 0.5;
+  }
+}
+
+/* Add this to Presentation.jsx to control animation timing */
+.slide16-fade-in {
+  animation: slide16-fade-in 0.5s ease-out;
+}
+
+@keyframes slide16-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -631,3 +631,142 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Add to Slide9.css */
+
+/* Enhanced type cards */
+.type-card {
+  animation: slideUp 0.5s ease-out backwards;
+  animation-delay: calc(var(--order, 0) * 0.1s);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  background: rgba(30, 30, 30, 0.9) !important;
+}
+
+.type-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  background: rgba(30, 30, 30, 0.95) !important;
+  border-width: 2px;
+}
+
+/* Enhanced type icons */
+.type-icon-wrapper {
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.type-card:hover .type-icon-wrapper {
+  transform: scale(1.2) rotate(10deg);
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 25px currentColor;
+}
+
+.type-icon-wrapper i {
+  transition: transform 0.3s ease;
+}
+
+.type-card:hover .type-icon-wrapper i {
+  transform: scale(1.3);
+}
+
+/* Enhanced number box */
+.number-box {
+  animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+  background: rgba(30, 30, 30, 0.9) !important;
+}
+
+.number-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 60px rgba(238, 0, 0, 0.3);
+  background: rgba(30, 30, 30, 0.95) !important;
+  animation: glow 2s infinite;
+}
+
+/* Enhanced key point */
+.key-point-adjusted {
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+  background: rgba(30, 30, 30, 0.9) !important;
+}
+
+.key-point-adjusted:hover {
+  transform: translateX(10px);
+  box-shadow: 0 10px 30px rgba(238, 0, 0, 0.2);
+  background: rgba(30, 30, 30, 0.95) !important;
+}
+
+/* Enhanced header */
+.slide9-header {
+  backdrop-filter: blur(8px);
+  background: rgba(26, 26, 26, 0.9) !important;
+  transition: all 0.3s ease;
+}
+
+.slide9-header:hover {
+  background: rgba(26, 26, 26, 0.95) !important;
+}
+
+/* Type-specific hover shadows */
+.process-type:hover {
+  box-shadow: 0 20px 40px rgba(22, 101, 52, 0.3) !important;
+}
+
+.file-type:hover {
+  box-shadow: 0 20px 40px rgba(30, 64, 175, 0.3) !important;
+}
+
+/* Enhanced tags */
+.type-tag {
+  transition: all 0.3s ease;
+}
+
+.type-card:hover .type-tag {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Light theme adjustments */
+.slide-container.light-theme .type-card {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+.slide-container.light-theme .type-card:hover {
+  background: rgba(248, 250, 252, 0.95) !important;
+}
+
+.slide-container.light-theme .number-box {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+.slide-container.light-theme .number-box:hover {
+  background: rgba(248, 250, 252, 0.95) !important;
+  box-shadow: 0 20px 60px rgba(238, 0, 0, 0.2);
+}
+
+.slide-container.light-theme .key-point-adjusted {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+.slide-container.light-theme .key-point-adjusted:hover {
+  background: rgba(248, 250, 252, 0.95) !important;
+  box-shadow: 0 10px 30px rgba(238, 0, 0, 0.15);
+}
+
+.slide-container.light-theme .slide9-header {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+.slide-container.light-theme .slide9-header:hover {
+  background: rgba(248, 250, 252, 0.95) !important;
+}
+
+/* Type-specific light theme hover shadows */
+.slide-container.light-theme .process-type:hover {
+  box-shadow: 0 20px 40px rgba(22, 101, 52, 0.2) !important;
+}
+
+.slide-container.light-theme .file-type:hover {
+  box-shadow: 0 20px 40px rgba(30, 64, 175, 0.2) !important;
+}

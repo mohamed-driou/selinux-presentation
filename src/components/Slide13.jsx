@@ -63,7 +63,10 @@ const Slide13 = ({ isSlideshowMode, isDarkTheme = true }) => {
             {/* Commands Grid - Moved up */}
             <div className="commands-grid-compact">
               {/* Afficher les booléens */}
-              <div className="command-card-compact list-command">
+              <div 
+                className="command-card-compact list-command"
+                style={{ '--order': 0 }}
+              >
                 <div className="command-icon-wrapper">
                   <i className="fa-solid fa-list"></i>
                 </div>
@@ -79,7 +82,10 @@ const Slide13 = ({ isSlideshowMode, isDarkTheme = true }) => {
               </div>
               
               {/* Activer un booléen */}
-              <div className="command-card-compact enable-command">
+              <div 
+                className="command-card-compact enable-command"
+                style={{ '--order': 1 }}
+              >
                 <div className="command-icon-wrapper">
                   <i className="fa-solid fa-toggle-on"></i>
                 </div>
@@ -96,7 +102,10 @@ const Slide13 = ({ isSlideshowMode, isDarkTheme = true }) => {
             </div>
             
             {/* Désactiver un booléen - Full width - Moved up */}
-            <div className="command-card-full-compact disable-command">
+            <div 
+              className="command-card-full-compact disable-command"
+              style={{ '--order': 2 }}
+            >
               <div className="command-icon-wrapper">
                 <i className="fa-solid fa-toggle-off"></i>
               </div>

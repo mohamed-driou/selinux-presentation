@@ -352,3 +352,134 @@
     font-size: 60px; /* Adjusted for smaller screen */
   }
 }
+
+/* Add this to Slide4.css, Slide6.css, Slide8.css, Slide10.css, Slide12.css */
+
+/* Enhanced number animation */
+.number-text {
+  animation: pulse 2s ease-in-out infinite;
+  transition: all 0.5s ease;
+  text-shadow: 0 0 30px rgba(238, 0, 0, 0.5);
+  position: relative;
+}
+
+.number-text::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(238, 0, 0, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.slide-container:hover .number-text::after {
+  opacity: 1;
+}
+
+/* Enhanced title with shadow animation */
+.title-shadow {
+  animation: pulse 4s ease-in-out infinite;
+  filter: blur(1px);
+  transition: all 0.5s ease;
+}
+
+.slide-container:hover .title-shadow {
+  opacity: 0.15;
+  transform: translate(6px, 6px);
+}
+
+.main-title {
+  transition: all 0.5s ease;
+  position: relative;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.slide-container:hover .main-title {
+  transform: scale(1.02);
+}
+
+/* Enhanced header */
+.header {
+  backdrop-filter: blur(8px);
+  background: rgba(26, 26, 26, 0.9) !important;
+  transition: all 0.3s ease;
+}
+
+.header:hover {
+  background: rgba(26, 26, 26, 0.95) !important;
+}
+
+.header-icon i {
+  transition: all 0.5s ease;
+}
+
+.header:hover .header-icon i {
+  transform: rotate(15deg);
+  opacity: 0.3;
+}
+
+/* Enhanced red bar */
+.red-vertical-bar {
+  transition: all 0.3s ease;
+}
+
+.header:hover .red-vertical-bar {
+  transform: scaleY(1.3);
+  box-shadow: 0 0 15px rgba(238, 0, 0, 0.6);
+}
+
+/* Enhanced arrow indicator */
+.arrow-indicator i {
+  transition: all 0.3s ease;
+  text-shadow: 0 0 15px rgba(238, 0, 0, 0.7);
+}
+
+.arrow-indicator:hover i {
+  transform: scale(1.3);
+  opacity: 1;
+  animation: bounce 0.8s infinite;
+}
+
+/* Staggered entrance animations */
+.center-content > * {
+  animation: slideUp 0.8s ease-out backwards;
+}
+
+.large-number {
+  animation-delay: 0.1s;
+}
+
+.title-wrapper {
+  animation-delay: 0.3s;
+}
+
+.arrow-indicator {
+  animation-delay: 0.5s;
+}
+
+/* Light theme adjustments */
+.slide-container.light-theme .number-text {
+  text-shadow: 0 0 20px rgba(238, 0, 0, 0.3);
+}
+
+.slide-container.light-theme .title-shadow {
+  filter: blur(0.5px);
+}
+
+.slide-container.light-theme .main-title {
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.slide-container.light-theme .header {
+  background: rgba(248, 250, 252, 0.9) !important;
+}
+
+.slide-container.light-theme .header:hover {
+  background: rgba(248, 250, 252, 0.95) !important;
+}

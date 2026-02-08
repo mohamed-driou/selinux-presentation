@@ -40,7 +40,10 @@ const Slide1 = ({ isSlideshowMode, isDarkTheme = true }) => {
         <div className="topics-grid">
           {/* Column 1 */}
           <div className="topic-column">
-            <div className="topic-card">
+            <div 
+              className="topic-card"
+              style={{ '--order': 0 }}
+            >
               <div className="card-header">
                 <div className="icon-circle green">
                   <i className="fas fa-toggle-on"></i>
@@ -50,7 +53,10 @@ const Slide1 = ({ isSlideshowMode, isDarkTheme = true }) => {
               <p className="card-text">Enforcing, Permissive, Disabled</p>
             </div>
             
-            <div className="topic-card">
+            <div 
+              className="topic-card"
+              style={{ '--order': 1 }}
+            >
               <div className="card-header">
                 <div className="icon-circle red">
                   <i className="fas fa-user-tag"></i>
@@ -63,7 +69,10 @@ const Slide1 = ({ isSlideshowMode, isDarkTheme = true }) => {
           
           {/* Column 2 */}
           <div className="topic-column">
-            <div className="topic-card">
+            <div 
+              className="topic-card"
+              style={{ '--order': 2 }}
+            >
               <div className="card-header">
                 <div className="icon-circle blue">
                   <i className="fas fa-tag"></i>
@@ -73,7 +82,10 @@ const Slide1 = ({ isSlideshowMode, isDarkTheme = true }) => {
               <p className="card-text">Type Enforcement (TE)</p>
             </div>
             
-            <div className="topic-card">
+            <div 
+              className="topic-card"
+              style={{ '--order': 3 }}
+            >
               <div className="card-header">
                 <div className="icon-circle yellow">
                   <i className="fas fa-user-group"></i>
@@ -86,7 +98,10 @@ const Slide1 = ({ isSlideshowMode, isDarkTheme = true }) => {
           
           {/* Column 3 */}
           <div className="topic-column">
-            <div className="topic-card">
+            <div 
+              className="topic-card"
+              style={{ '--order': 4 }}
+            >
               <div className="card-header">
                 <div className="icon-circle purple">
                   <i className="fas fa-toggle-off"></i>

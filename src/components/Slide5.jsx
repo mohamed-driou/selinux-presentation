@@ -36,7 +36,10 @@ const Slide5 = ({ isSlideshowMode, isDarkTheme = true }) => {
           {/* Right Column: Modes */}
           <div className="right-column">
             {/* Enforcing Mode */}
-            <div className="mode-card enforcing">
+            <div 
+              className="mode-card enforcing"
+              style={{ '--order': 0 }}
+            >
               <div className="mode-icon">
                 <i className="fa-solid fa-lock"></i>
               </div>
@@ -52,7 +55,10 @@ const Slide5 = ({ isSlideshowMode, isDarkTheme = true }) => {
             </div>
             
             {/* Permissive Mode */}
-            <div className="mode-card permissive">
+            <div 
+              className="mode-card permissive"
+              style={{ '--order': 1 }}
+            >
               <div className="mode-icon">
                 <i className="fa-solid fa-triangle-exclamation"></i>
               </div>
@@ -68,7 +74,10 @@ const Slide5 = ({ isSlideshowMode, isDarkTheme = true }) => {
             </div>
             
             {/* Disabled Mode */}
-            <div className="mode-card disabled">
+            <div 
+              className="mode-card disabled"
+              style={{ '--order': 2 }}
+            >
               <div className="mode-icon">
                 <i className="fa-solid fa-power-off"></i>
               </div>
