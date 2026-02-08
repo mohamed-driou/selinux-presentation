@@ -24,7 +24,7 @@ const TOTAL_SLIDES = 16;
 const Presentation = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
   const [isSlideshowMode, setIsSlideshowMode] = useState(false);
-  const [isDarkTheme, setIsDarkTheme] = useState(true); // Add theme state
+  const [isDarkTheme, setIsDarkTheme] = useState(true);
 
   /* =====================
      Navigation callbacks
@@ -74,6 +74,29 @@ const Presentation = () => {
   }, []);
 
   /* =====================
+     Progress bar animation on slide change
+     ===================== */
+
+  useEffect(() => {
+    const progressFill = document.querySelector('.progress-fill');
+    if (progressFill) {
+      progressFill.classList.add('changing');
+      const timer = setTimeout(() => {
+        progressFill.classList.remove('changing');
+      }, 500);
+
+      // Add complete class when at 100%
+      if (currentSlide === TOTAL_SLIDES) {
+        progressFill.classList.add('complete');
+      } else {
+        progressFill.classList.remove('complete');
+      }
+
+      return () => clearTimeout(timer);
+    }
+  }, [currentSlide]);
+
+  /* =====================
      Keyboard navigation
      ===================== */
 
@@ -94,9 +117,18 @@ const Presentation = () => {
           goToSlide(slideNum);
         }
       } else if (e.key.toLowerCase() === 't') {
-        // Add T key for theme toggle
         e.preventDefault();
         toggleTheme();
+      } else if (e.key === '0') {
+        // Go to last slide (slide 16)
+        goToSlide(TOTAL_SLIDES);
+      } else if (e.key.toLowerCase() === 'p') {
+        // P key to go to progress bar (for accessibility)
+        e.preventDefault();
+        const progressBar = document.querySelector('.progress-bar-container');
+        if (progressBar) {
+          progressBar.focus();
+        }
       }
     };
 
@@ -158,9 +190,43 @@ const Presentation = () => {
     <Slide16 />
   ];
 
+  // Calculate progress percentage
+  const progressPercentage = Math.round((currentSlide / TOTAL_SLIDES) * 100);
+  const progressWidth = (currentSlide / TOTAL_SLIDES) * 100;
+
   return (
     <div className={`presentation-container ${isSlideshowMode ? 'slideshow-mode' : ''} ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
       {React.cloneElement(slides[currentSlide - 1], { isSlideshowMode, isDarkTheme })}
+
+      {/* Progress Bar - Visible in both normal and slideshow modes */}
+      <div 
+  className="progress-bar-container floating"
+  tabIndex={-1}
+>
+        <div className="progress-header">
+          <span className="progress-title">
+            {isSlideshowMode ? 'Progress' : 'Presentation Progress'}
+          </span>
+          <span className="progress-percentage">
+            {progressPercentage}%
+          </span>
+        </div>
+        <div className="progress-bar">
+          <div 
+            className={`progress-fill ${currentSlide === TOTAL_SLIDES ? 'complete' : ''}`}
+            style={{ width: `${progressWidth}%` }}
+            aria-label={`Progress: ${progressPercentage}% complete, Slide ${currentSlide} of ${TOTAL_SLIDES}`}
+          />
+        </div>
+        {!isSlideshowMode && (
+          <div className="progress-info">
+            <span>Slide {currentSlide} of {TOTAL_SLIDES}</span>
+            <span>
+              {progressPercentage}% Complete
+            </span>
+          </div>
+        )}
+      </div>
 
       {/* Slideshow overlay */}
       {isSlideshowMode && (
@@ -173,7 +239,7 @@ const Presentation = () => {
             <span>← → Navigate</span>
             <span>ESC Exit</span>
             <span>F Fullscreen</span>
-            <span>T Theme</span> {/* Add theme hint */}
+            <span>T Theme</span>
           </div>
         </div>
       )}
@@ -186,16 +252,21 @@ const Presentation = () => {
               onClick={prevSlide}
               disabled={currentSlide === 1}
               className="nav-button prev-button"
+              aria-label="Go to previous slide"
             >
-              ◀ Previous
+              <span className="nav-button-icon">◀</span>
+              <span className="nav-button-text">Previous</span>
             </button>
 
-            <div className="slide-indicators">
+            <div className="slide-indicators" role="tablist" aria-label="Slide navigation">
               {Array.from({ length: TOTAL_SLIDES }, (_, i) => (
                 <button
                   key={i + 1}
                   onClick={() => goToSlide(i + 1)}
                   className={`slide-indicator ${currentSlide === i + 1 ? 'active' : ''}`}
+                  role="tab"
+                  aria-selected={currentSlide === i + 1}
+                  aria-label={`Go to slide ${i + 1}`}
                 >
                   {i + 1}
                 </button>
@@ -206,41 +277,54 @@ const Presentation = () => {
               onClick={nextSlide}
               disabled={currentSlide === TOTAL_SLIDES}
               className="nav-button next-button"
+              aria-label="Go to next slide"
             >
-              Next ▶
+              <span className="nav-button-text">Next</span>
+              <span className="nav-button-icon">▶</span>
             </button>
 
             <button
               onClick={toggleSlideshowMode}
               className="nav-button slideshow-button"
+              aria-label="Enter slideshow mode"
             >
-              ⛶ Slideshow
+              <span className="nav-button-icon">⛶</span>
+              <span className="nav-button-text">Slideshow</span>
             </button>
 
             {/* Theme toggle button */}
             <button
               onClick={toggleTheme}
               className="nav-button theme-button"
+              aria-label={`Switch to ${isDarkTheme ? 'light' : 'dark'} theme`}
               title={`Switch to ${isDarkTheme ? 'light' : 'dark'} theme`}
             >
               {isDarkTheme ? (
                 <>
-                  <i className="fas fa-sun"></i> Light
+                  <span className="nav-button-icon">
+                    <i className="fas fa-sun"></i>
+                  </span>
+                  <span className="nav-button-text">Light</span>
                 </>
               ) : (
                 <>
-                  <i className="fas fa-moon"></i> Dark
+                  <span className="nav-button-icon">
+                    <i className="fas fa-moon"></i>
+                  </span>
+                  <span className="nav-button-text">Dark</span>
                 </>
               )}
             </button>
           </div>
 
           <div className="keyboard-hint">
-            <span>← → Space Enter</span>
+            <span>← → Space Enter: Navigate</span>
             <span style={{ margin: '0 10px', color: '#EE0000' }}>|</span>
-            <span>F Slideshow</span>
+            <span>F: Slideshow</span>
             <span style={{ margin: '0 10px', color: '#EE0000' }}>|</span>
-            <span>T Theme</span> {/* Add theme hint */}
+            <span>T: Theme</span>
+            <span style={{ margin: '0 10px', color: '#EE0000' }}>|</span>
+            <span>P: Focus Progress</span>
           </div>
         </>
       )}

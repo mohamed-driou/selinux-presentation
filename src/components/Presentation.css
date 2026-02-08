@@ -1,3 +1,17 @@
+/* =====================
+   Presentation.css
+   Complete Stylesheet
+   ===================== */
+
+/* Global Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Presentation Container */
 .presentation-container {
   margin: 0;
   padding: 0;
@@ -42,7 +56,259 @@
   }
 }
 
-/* Navigation Buttons */
+/* =====================
+   Progress Bar Styles
+   ===================== */
+
+.progress-bar-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  background: rgba(15, 15, 15, 0.9);
+  border-radius: 12px;
+  padding: 12px 20px;
+  border: 1px solid #333;
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeInDown 0.5s ease-out;
+}
+
+/* Slideshow-specific progress bar styles */
+.presentation-container.slideshow-mode .progress-bar-container {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(238, 0, 0, 0.4);
+  padding: 8px 15px;
+  z-index: 10000;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  animation: fadeInDown 0.3s ease-out;
+}
+
+.presentation-container.slideshow-mode .progress-title {
+  font-size: 11px;
+  color: #EE0000;
+  font-weight: 700;
+}
+
+.presentation-container.slideshow-mode .progress-percentage {
+  font-size: 14px;
+  color: white;
+  font-weight: 800;
+}
+
+.presentation-container.slideshow-mode .progress-bar {
+  height: 4px;
+  margin-top: 6px;
+}
+
+.presentation-container.slideshow-mode .progress-fill {
+  background: linear-gradient(90deg, 
+    #EE0000 0%, 
+    #ff5252 50%, 
+    #ff7b7b 100%);
+}
+
+/* Light theme progress bar */
+.presentation-container.light-theme .progress-bar-container {
+  background: rgba(248, 250, 252, 0.95);
+  border: 1px solid #cbd5e1;
+  color: #334155;
+}
+
+/* Light theme slideshow progress bar - FIXED */
+.presentation-container.slideshow-mode.light-theme .progress-bar-container {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(238, 0, 0, 0.3) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.presentation-container.slideshow-mode.light-theme .progress-title {
+  color: #EE0000 !important;
+}
+
+.presentation-container.slideshow-mode.light-theme .progress-percentage {
+  color: #333 !important;
+}
+
+.presentation-container.slideshow-mode.light-theme .progress-bar {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.progress-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.presentation-container.light-theme .progress-title {
+  color: #64748b;
+}
+
+.progress-percentage {
+  font-size: 16px;
+  font-weight: 800;
+  color: #EE0000;
+  font-family: 'Inter', monospace;
+}
+
+.presentation-container.light-theme .progress-percentage {
+  color: #EE0000;
+}
+
+.progress-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.presentation-container.light-theme .progress-bar {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, 
+    #EE0000 0%, 
+    #ff3333 50%, 
+    #ff6666 100%);
+  border-radius: 10px;
+  width: 0%;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+.presentation-container.light-theme .progress-fill::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 0, 0, 0.2),
+    transparent
+  ) !important;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+.presentation-container.light-theme .progress-info {
+  color: #64748b;
+}
+
+.progress-info span:first-child {
+  font-weight: 600;
+  color: #d1d5db;
+}
+
+.presentation-container.light-theme .progress-info span:first-child {
+  color: #475569;
+}
+
+.progress-info span:last-child {
+  font-family: 'Inter', monospace;
+  font-weight: 700;
+  color: #EE0000;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Slide in animation for progress bar */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Progress bar pulse animation */
+@keyframes progressPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(238, 0, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(238, 0, 0, 0);
+  }
+}
+
+.progress-fill.complete {
+  animation: progressPulse 2s infinite;
+}
+
+/* Progress bar glow on slide change */
+@keyframes progressGlow {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+.progress-fill.changing {
+  animation: progressGlow 0.5s ease-in-out;
+}
+
+/* =====================
+   Navigation Buttons
+   ===================== */
+
 .navigation-buttons {
   position: fixed;
   bottom: 20px;
@@ -72,12 +338,14 @@
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .nav-button:hover:not(:disabled) {
   background: #2a2a2a;
   border-color: #EE0000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .nav-button:disabled {
@@ -105,7 +373,10 @@
   border-color: #1c71d8;
 }
 
-/* Slide Indicators */
+/* =====================
+   Slide Indicators
+   ===================== */
+
 .slide-indicators {
   display: flex;
   gap: 6px;
@@ -122,21 +393,27 @@
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .slide-indicator:hover {
   background: #2a2a2a;
   border-color: #555;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(238, 0, 0, 0.2);
 }
 
 .slide-indicator.active {
   background: #EE0000;
   border-color: #EE0000;
   color: white;
+  transform: scale(1.1);
 }
 
-/* Slideshow Overlay */
+/* =====================
+   Slideshow Overlay
+   ===================== */
+
 .slideshow-overlay {
   position: fixed;
   top: 0;
@@ -165,6 +442,26 @@
   backdrop-filter: blur(4px);
 }
 
+.presentation-container.slideshow-mode .slideshow-timer {
+  top: 60px;
+  right: 20px;
+}
+
+/* Light theme slideshow timer - FIXED */
+.presentation-container.slideshow-mode.light-theme .slideshow-timer {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #333 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+.presentation-container.slideshow-mode.light-theme .slideshow-timer .current-slide {
+  color: #EE0000 !important;
+}
+
+.presentation-container.slideshow-mode.light-theme .slideshow-timer .total-slides {
+  color: #666 !important;
+}
+
 .slideshow-timer .current-slide {
   color: #EE0000;
   font-size: 18px;
@@ -191,11 +488,25 @@
   backdrop-filter: blur(4px);
 }
 
+.presentation-container.slideshow-mode .slideshow-help {
+  bottom: 80px;
+}
+
+/* Light theme slideshow help - FIXED */
+.presentation-container.slideshow-mode.light-theme .slideshow-help {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #666 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
 .slideshow-help span {
   padding: 0 10px;
 }
 
-/* Keyboard hint */
+/* =====================
+   Keyboard Hint
+   ===================== */
+
 .keyboard-hint {
   position: fixed;
   top: 20px;
@@ -210,43 +521,10 @@
   z-index: 1000;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1400px) {
-  .presentation-container.slideshow-mode .slide-container {
-    transform: scale(1.1);
-  }
-}
+/* =====================
+   Light Theme Variables
+   ===================== */
 
-@media (max-width: 1200px) {
-  .presentation-container.slideshow-mode .slide-container {
-    transform: scale(1);
-  }
-}
-
-@media (max-width: 768px) {
-  .presentation-container.slideshow-mode .slide-container {
-    transform: scale(0.9);
-    max-width: 95vw;
-    max-height: 95vh;
-  }
-  
-  .navigation-buttons {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-  }
-  
-  .slideshow-help {
-    flex-direction: column;
-    gap: 5px;
-    text-align: center;
-  }
-}
-
-/* Add these to your existing Presentation.css */
-
-/* Light theme variables */
 .presentation-container.light-theme {
   background-color: #f8fafc;
 }
@@ -309,34 +587,17 @@
   color: white;
 }
 
-/* Light theme slideshow overlay */
-.presentation-container.light-theme .slideshow-timer {
-  background: rgba(248, 250, 252, 0.9);
-  color: #334155;
-  border: 1px solid #cbd5e1;
-}
-
-.presentation-container.light-theme .slideshow-timer .current-slide {
-  color: #EE0000;
-}
-
-.presentation-container.light-theme .slideshow-timer .total-slides {
-  color: #64748b;
-}
-
-.presentation-container.light-theme .slideshow-help {
-  background: rgba(248, 250, 252, 0.9);
-  color: #64748b;
-  border: 1px solid #cbd5e1;
-}
-
+/* Light theme keyboard hint */
 .presentation-container.light-theme .keyboard-hint {
   background: rgba(248, 250, 252, 0.9);
   color: #64748b;
   border: 1px solid #cbd5e1;
 }
 
-/* Theme button specific styles */
+/* =====================
+   Theme Button Styles
+   ===================== */
+
 .theme-button {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border: none;
@@ -346,16 +607,13 @@
 
 .theme-button:hover {
   background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
 }
 
-/* Add these global animations to Presentation.css */
-
-/* Global hover transition timing */
-* {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+/* =====================
+   Global Animations
+   ===================== */
 
 /* Smooth fade-in animation */
 @keyframes fadeIn {
@@ -425,7 +683,10 @@
   }
 }
 
-/* Add these backdrop blur utilities */
+/* =====================
+   Backdrop Blur Utilities
+   ===================== */
+
 .backdrop-blur-sm {
   backdrop-filter: blur(4px);
 }
@@ -438,12 +699,10 @@
   backdrop-filter: blur(12px);
 }
 
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
+/* =====================
+   Enhanced Focus Styles
+   ===================== */
 
-/* Enhanced focus styles for accessibility */
 *:focus {
   outline: 2px solid #EE0000;
   outline-offset: 2px;
@@ -454,27 +713,288 @@ html {
   outline: none;
 }
 
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Smooth transition for theme changes */
 body {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* Enhanced button hover effects */
-.nav-button, .slide-indicator, .theme-button {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+/* =====================
+   Minimal Progress Bar for Slideshow
+   ===================== */
+
+.slideshow-progress {
+  position: fixed !important;
+  top: 10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 280px !important;
+  padding: 8px 12px !important;
+  background: rgba(0, 0, 0, 0.9) !important;
+  border: 1px solid #EE0000 !important;
+  border-radius: 8px !important;
+  animation: fadeIn 0.3s ease-out !important;
+  z-index: 10000 !important;
 }
 
-.nav-button:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+/* Light theme for slideshow-progress - FIXED */
+.presentation-container.slideshow-mode.light-theme .slideshow-progress,
+.presentation-container.light-theme.slideshow-mode .slideshow-progress {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(238, 0, 0, 0.3) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
 }
 
-.slide-indicator:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(238, 0, 0, 0.2);
+.presentation-container.slideshow-mode.light-theme .slideshow-progress .progress-title,
+.presentation-container.light-theme.slideshow-mode .slideshow-progress .progress-title {
+  color: #EE0000 !important;
 }
 
-.theme-button:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+.presentation-container.slideshow-mode.light-theme .slideshow-progress .progress-percentage,
+.presentation-container.light-theme.slideshow-mode .slideshow-progress .progress-percentage {
+  color: #333 !important;
+}
+
+.presentation-container.slideshow-mode.light-theme .slideshow-progress .progress-bar,
+.presentation-container.light-theme.slideshow-mode .slideshow-progress .progress-bar {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+.slideshow-progress .progress-info {
+  display: none;
+}
+
+.slideshow-progress .progress-title {
+  font-size: 10px;
+  letter-spacing: 0.5px;
+}
+
+.slideshow-progress .progress-percentage {
+  font-size: 13px;
+}
+
+.slideshow-progress .progress-bar {
+  height: 3px;
+  margin-top: 4px;
+}
+
+/* Floating progress bar */
+.progress-bar-container.floating {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+.presentation-container.light-theme .progress-bar-container.floating {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Light theme floating progress bar in slideshow - FIXED */
+.presentation-container.slideshow-mode.light-theme .progress-bar-container.floating {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(238, 0, 0, 0.3) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* =====================
+   Responsive Adjustments
+   ===================== */
+
+@media (max-width: 1400px) {
+  .presentation-container.slideshow-mode .slide-container {
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 1200px) {
+  .presentation-container.slideshow-mode .slide-container {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .presentation-container.slideshow-mode .slide-container {
+    transform: scale(0.9);
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+  
+  .navigation-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    bottom: 10px;
+  }
+  
+  .slideshow-help {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+    bottom: 150px;
+  }
+  
+  .keyboard-hint {
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+  
+  /* Progress bar responsive */
+  .progress-bar-container {
+    width: 90%;
+    padding: 10px 15px;
+    top: 15px;
+  }
+  
+  .progress-title {
+    font-size: 11px;
+  }
+  
+  .progress-percentage {
+    font-size: 14px;
+  }
+  
+  .progress-info {
+    font-size: 11px;
+  }
+  
+  /* Slideshow mode responsive */
+  .presentation-container.slideshow-mode .progress-bar-container {
+    width: 250px;
+    padding: 6px 10px;
+    top: 5px;
+  }
+  
+  .slideshow-progress {
+    width: 220px !important;
+    padding: 6px 10px !important;
+  }
+  
+  .presentation-container.slideshow-mode .slideshow-timer {
+    top: 50px;
+    right: 10px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  .presentation-container.slideshow-mode .slideshow-help {
+    bottom: 70px;
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+  
+  /* Light theme responsive fixes */
+  .presentation-container.slideshow-mode.light-theme .progress-bar-container {
+    width: 250px !important;
+    padding: 6px 10px !important;
+    top: 5px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .progress-bar-container {
+    width: 95%;
+    padding: 8px 12px;
+  }
+  
+  .progress-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .progress-percentage {
+    align-self: flex-end;
+  }
+  
+  .navigation-buttons {
+    flex-direction: column;
+    width: 90%;
+    gap: 8px;
+  }
+  
+  .slide-indicators {
+    order: -1;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .slide-indicator {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+  
+  .nav-button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .keyboard-hint {
+    display: none;
+  }
+  
+  /* Mobile slideshow fixes */
+  .presentation-container.slideshow-mode .progress-bar-container {
+    width: 200px !important;
+    padding: 5px 8px !important;
+  }
+  
+  .slideshow-progress {
+    width: 180px !important;
+    padding: 5px 8px !important;
+  }
+  
+  .presentation-container.slideshow-mode.light-theme .progress-bar-container {
+    width: 200px !important;
+    padding: 5px 8px !important;
+  }
+}
+
+/* =====================
+   Additional Utility Classes
+   ===================== */
+
+/* Adjust slideshow timer position when progress bar is present */
+.presentation-container:not(.slideshow-mode) .slideshow-timer {
+  top: 80px;
+}
+
+/* Alternative position for progress bar (top-right) */
+.progress-bar-container.alternate {
+  left: auto;
+  right: 20px;
+  transform: none;
+  width: 300px;
+}
+
+/* Compact progress bar variant */
+.progress-bar-container.compact {
+  width: 300px;
+  padding: 10px 15px;
+}
+
+.progress-bar-container.compact .progress-info {
+  display: none;
+}
+
+/* =====================
+   Theme Transition Smoothing
+   ===================== */
+
+.progress-bar-container,
+.slideshow-timer,
+.slideshow-help,
+.keyboard-hint,
+.navigation-buttons {
+  transition: background-color 0.5s ease, 
+              border-color 0.5s ease, 
+              color 0.5s ease,
+              box-shadow 0.5s ease;
 }
