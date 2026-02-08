@@ -540,3 +540,211 @@
 .slide-container.slideshow-mode .right-column {
   transform-origin: center;
 }
+
+/* Light Theme Styles for Slide11 */
+.slide-container.light-theme {
+  background-color: #ffffff;
+  color: #1e293b;
+}
+
+.slide-container.light-theme .bg-grid {
+  background-image: 
+    linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+    linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+  opacity: 0.4;
+}
+
+.slide-container.light-theme .slide11-header {
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.slide-container.light-theme .header-subtitle {
+  color: #EE0000;
+}
+
+.slide-container.light-theme .header-title {
+  color: #1e293b;
+}
+
+.slide-container.light-theme .header-icon i {
+  color: #64748b;
+  opacity: 0.2;
+}
+
+.slide-container.light-theme .number-box-adjusted {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.slide-container.light-theme .number-box-heading-adjusted {
+  color: #1e293b;
+}
+
+.slide-container.light-theme .info-box-adjusted {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.slide-container.light-theme .info-box-content {
+  color: #475569;
+}
+
+.slide-container.light-theme .red-arrow {
+  color: #EE0000;
+}
+
+.slide-container.light-theme .section-title-compact {
+  color: #1e293b;
+}
+
+.slide-container.light-theme .definition-text-compact {
+  color: #475569;
+}
+
+.slide-container.light-theme .definition-list-item-compact {
+  color: #475569;
+}
+
+.slide-container.light-theme .list-bullet {
+  color: #EE0000;
+}
+
+.slide-container.light-theme .examples-title-compact {
+  color: #1e293b;
+}
+
+.slide-container.light-theme .level-card {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.slide-container.light-theme .level-card:hover {
+  background-color: #f1f5f9;
+}
+
+/* Light theme level icons */
+.slide-container.light-theme .standard-level .level-icon-wrapper {
+  background-color: #dbeafe;
+  border-color: #93c5fd;
+}
+
+.slide-container.light-theme .standard-level .level-icon-wrapper i {
+  color: #1e40af;
+}
+
+.slide-container.light-theme .classified-level .level-icon-wrapper {
+  background-color: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.slide-container.light-theme .classified-level .level-icon-wrapper i {
+  color: #991b1b;
+}
+
+.slide-container.light-theme .level-name {
+  color: #1e293b;
+}
+
+/* Light theme level tags */
+.slide-container.light-theme .standard-tag {
+  background-color: #dbeafe;
+  color: #1e40af;
+  border-color: #93c5fd;
+}
+
+.slide-container.light-theme .classified-tag {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border-color: #fca5a5;
+}
+
+.slide-container.light-theme .level-description {
+  color: #475569;
+}
+
+.slide-container.light-theme .environment-box-compact {
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+}
+
+.slide-container.light-theme .environment-box-content {
+  color: #475569;
+}
+
+.slide-container.light-theme .environment-icon {
+  color: #EE0000;
+}
+
+.slide-container.light-theme .environment-title {
+  color: #1e293b;
+}
+
+.slide-container.light-theme .environment-tag i {
+  color: #991b1b;
+}
+
+.slide-container.light-theme .environment-tag-text {
+  color: #475569;
+}
+
+.slide-container.light-theme .bottom-bar {
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.slide-container.light-theme .bottom-left-text,
+.slide-container.light-theme .bottom-right-text {
+  color: #64748b;
+}
+
+.slide-container.light-theme .dot {
+  background-color: #e2e8f0;
+}
+
+.slide-container.light-theme .dot.active {
+  background-color: #EE0000;
+}
+
+/* Responsive adjustments for light theme */
+@media (max-width: 1300px) {
+  .slide-container.light-theme {
+    transform: scale(0.8);
+    transform-origin: top left;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide-container.light-theme {
+    transform: scale(0.6);
+    transform-origin: top left;
+  }
+  
+  .slide-container.light-theme .content-area-adjusted {
+    flex-direction: column;
+    padding: 16px;
+  }
+  
+  .slide-container.light-theme .left-column-adjusted,
+  .slide-container.light-theme .right-column-adjusted {
+    width: 100%;
+    padding: 0;
+    margin-top: 0;
+  }
+  
+  .slide-container.light-theme .number-box-adjusted,
+  .slide-container.light-theme .info-box-adjusted {
+    width: 100%;
+    height: auto;
+  }
+  
+  .slide-container.light-theme .levels-grid-compact {
+    grid-template-columns: 1fr;
+  }
+  
+  .slide-container.light-theme .environment-tags {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

@@ -243,3 +243,109 @@
     text-align: center;
   }
 }
+
+/* Add these to your existing Presentation.css */
+
+/* Light theme variables */
+.presentation-container.light-theme {
+  background-color: #f8fafc;
+}
+
+.presentation-container.light-theme.slideshow-mode {
+  background-color: #f1f5f9;
+}
+
+/* Light theme navigation */
+.presentation-container.light-theme .navigation-buttons {
+  background: rgba(248, 250, 252, 0.9);
+  border: 1px solid #cbd5e1;
+}
+
+.presentation-container.light-theme .nav-button {
+  background: #e2e8f0;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+.presentation-container.light-theme .nav-button:hover:not(:disabled) {
+  background: #cbd5e1;
+  border-color: #EE0000;
+}
+
+.presentation-container.light-theme .next-button {
+  background: #EE0000;
+  border-color: #EE0000;
+  color: white;
+}
+
+.presentation-container.light-theme .next-button:hover:not(:disabled) {
+  background: #ff3333;
+}
+
+.presentation-container.light-theme .slideshow-button {
+  background: #1a5fb4;
+  border-color: #1a5fb4;
+  color: white;
+}
+
+.presentation-container.light-theme .slideshow-button:hover {
+  background: #1c71d8;
+}
+
+.presentation-container.light-theme .slide-indicator {
+  background: #e2e8f0;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+}
+
+.presentation-container.light-theme .slide-indicator:hover {
+  background: #cbd5e1;
+  border-color: #94a3b8;
+}
+
+.presentation-container.light-theme .slide-indicator.active {
+  background: #EE0000;
+  border-color: #EE0000;
+  color: white;
+}
+
+/* Light theme slideshow overlay */
+.presentation-container.light-theme .slideshow-timer {
+  background: rgba(248, 250, 252, 0.9);
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+.presentation-container.light-theme .slideshow-timer .current-slide {
+  color: #EE0000;
+}
+
+.presentation-container.light-theme .slideshow-timer .total-slides {
+  color: #64748b;
+}
+
+.presentation-container.light-theme .slideshow-help {
+  background: rgba(248, 250, 252, 0.9);
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+}
+
+.presentation-container.light-theme .keyboard-hint {
+  background: rgba(248, 250, 252, 0.9);
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+}
+
+/* Theme button specific styles */
+.theme-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  margin-left: 10px;
+}
+
+.theme-button:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}

@@ -513,3 +513,189 @@
   margin: 0;
 }
 
+
+
+/* Light Theme Styles for Slide1 */
+.slide-container.light-theme {
+  background-color: #ffffff;
+  color: #1e293b;
+}
+
+.slide-container.light-theme .bg-grid {
+  background-image: 
+    linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+    linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+  opacity: 0.4;
+}
+
+.slide-container.light-theme .main-title {
+  color: #1e293b;
+}
+
+.slide-container.light-theme .subtitle {
+  color: #475569;
+}
+
+.slide-container.light-theme .subtitle-text {
+  color: #64748b;
+}
+
+.slide-container.light-theme .topic-card {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+.slide-container.light-theme .topic-card:hover {
+  border-color: #EE0000;
+  background-color: #f1f5f9;
+}
+
+.slide-container.light-theme .card-title {
+  color: #1e293b;
+}
+
+.slide-container.light-theme .card-text {
+  color: #64748b;
+}
+
+/* Light theme icons */
+.slide-container.light-theme .icon-circle.green {
+  background-color: #dcfce7;
+  border-color: #86efac;
+}
+
+.slide-container.light-theme .icon-circle.red {
+  background-color: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.slide-container.light-theme .icon-circle.blue {
+  background-color: #dbeafe;
+  border-color: #93c5fd;
+}
+
+.slide-container.light-theme .icon-circle.yellow {
+  background-color: #fef9c3;
+  border-color: #fde047;
+}
+
+.slide-container.light-theme .icon-circle.purple {
+  background-color: #f3e8ff;
+  border-color: #d8b4fe;
+}
+
+/* Light theme bottom info */
+.slide-container.light-theme .info-box {
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+}
+
+.slide-container.light-theme .info-text {
+  color: #475569;
+}
+
+/* Light theme bottom bar */
+.slide-container.light-theme .bottom-bar {
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.slide-container.light-theme .bar-text {
+  color: #64748b;
+}
+
+.slide-container.light-theme .dot {
+  background-color: #e2e8f0;
+}
+
+.slide-container.light-theme .dot.active {
+  background-color: #EE0000;
+}
+
+/* Light theme decorative icons */
+.slide-container.light-theme .linux-icon {
+  color: #1e293b;
+  opacity: 0.05;
+}
+
+.slide-container.light-theme .shield-icon {
+  color: #EE0000;
+  opacity: 0.1;
+}
+
+/* Add these to Slide1.css */
+
+/* Light theme for Slide7 */
+.slide-container.light-theme .content-area-slide7 {
+  color: #1e293b;
+}
+
+.slide-container.light-theme .number-box {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.slide-container.light-theme .number-box-heading {
+  color: #1e293b;
+}
+
+.slide-container.light-theme .section-title {
+  color: #1e293b;
+}
+
+.slide-container.light-theme .definition-text {
+  color: #475569;
+}
+
+.slide-container.light-theme .examples-title {
+  color: #1e293b;
+}
+
+.slide-container.light-theme .role-card {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+.slide-container.light-theme .role-card:hover {
+  background-color: #f1f5f9;
+}
+
+/* Light theme role icons */
+.slide-container.light-theme .system-role .role-icon-wrapper {
+  background-color: #dcfce7;
+  border-color: #86efac;
+}
+
+.slide-container.light-theme .user-role .role-icon-wrapper {
+  background-color: #dbeafe;
+  border-color: #93c5fd;
+}
+
+.slide-container.light-theme .staff-role .role-icon-wrapper {
+  background-color: #fef9c3;
+  border-color: #fde047;
+}
+
+.slide-container.light-theme .admin-role .role-icon-wrapper {
+  background-color: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.slide-container.light-theme .role-name {
+  color: #1e293b;
+}
+
+.slide-container.light-theme .role-description {
+  color: #475569;
+}
+
+.slide-container.light-theme .key-point {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.slide-container.light-theme .key-point-text {
+  color: #475569;
+}

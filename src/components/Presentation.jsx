@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './Presentation.css';
 
+// Import all your slides
 import Slide1 from './Slide1';
 import Slide2 from './Slide2';
 import Slide3 from './Slide3';
@@ -22,6 +23,7 @@ const TOTAL_SLIDES = 15;
 const Presentation = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
   const [isSlideshowMode, setIsSlideshowMode] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(true); // Add theme state
 
   /* =====================
      Navigation callbacks
@@ -37,6 +39,14 @@ const Presentation = () => {
 
   const goToSlide = useCallback((slide) => {
     setCurrentSlide(slide);
+  }, []);
+
+  /* =====================
+     Theme toggle
+     ===================== */
+
+  const toggleTheme = useCallback(() => {
+    setIsDarkTheme((prev) => !prev);
   }, []);
 
   /* =====================
@@ -82,12 +92,16 @@ const Presentation = () => {
         if (slideNum <= TOTAL_SLIDES) {
           goToSlide(slideNum);
         }
+      } else if (e.key.toLowerCase() === 't') {
+        // Add T key for theme toggle
+        e.preventDefault();
+        toggleTheme();
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [nextSlide, prevSlide, goToSlide, toggleSlideshowMode, isSlideshowMode]);
+  }, [nextSlide, prevSlide, goToSlide, toggleSlideshowMode, isSlideshowMode, toggleTheme]);
 
   /* =====================
      Fullscreen exit sync
@@ -104,6 +118,21 @@ const Presentation = () => {
     return () =>
       document.removeEventListener('fullscreenchange', handleFullscreenChange);
   }, []);
+
+  /* =====================
+     Theme class on body
+     ===================== */
+
+  useEffect(() => {
+    const body = document.body;
+    if (isDarkTheme) {
+      body.classList.add('dark-theme');
+      body.classList.remove('light-theme');
+    } else {
+      body.classList.add('light-theme');
+      body.classList.remove('dark-theme');
+    }
+  }, [isDarkTheme]);
 
   /* =====================
      Slides list
@@ -128,8 +157,8 @@ const Presentation = () => {
   ];
 
   return (
-    <div className={`presentation-container ${isSlideshowMode ? 'slideshow-mode' : ''}`}>
-      {React.cloneElement(slides[currentSlide - 1], { isSlideshowMode })}
+    <div className={`presentation-container ${isSlideshowMode ? 'slideshow-mode' : ''} ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
+      {React.cloneElement(slides[currentSlide - 1], { isSlideshowMode, isDarkTheme })}
 
       {/* Slideshow overlay */}
       {isSlideshowMode && (
@@ -142,6 +171,7 @@ const Presentation = () => {
             <span>← → Navigate</span>
             <span>ESC Exit</span>
             <span>F Fullscreen</span>
+            <span>T Theme</span> {/* Add theme hint */}
           </div>
         </div>
       )}
@@ -184,12 +214,31 @@ const Presentation = () => {
             >
               ⛶ Slideshow
             </button>
+
+            {/* Theme toggle button */}
+            <button
+              onClick={toggleTheme}
+              className="nav-button theme-button"
+              title={`Switch to ${isDarkTheme ? 'light' : 'dark'} theme`}
+            >
+              {isDarkTheme ? (
+                <>
+                  <i className="fas fa-sun"></i> Light
+                </>
+              ) : (
+                <>
+                  <i className="fas fa-moon"></i> Dark
+                </>
+              )}
+            </button>
           </div>
 
           <div className="keyboard-hint">
             <span>← → Space Enter</span>
             <span style={{ margin: '0 10px', color: '#EE0000' }}>|</span>
             <span>F Slideshow</span>
+            <span style={{ margin: '0 10px', color: '#EE0000' }}>|</span>
+            <span>T Theme</span> {/* Add theme hint */}
           </div>
         </>
       )}

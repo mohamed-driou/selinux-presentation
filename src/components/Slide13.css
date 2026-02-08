@@ -511,3 +511,195 @@
 .slide-container.slideshow-mode .right-column {
   transform-origin: center;
 }
+
+/* Light Theme Styles for Slide13 */
+.slide-container.light-theme {
+  background-color: #ffffff;
+  color: #1e293b;
+}
+
+.slide-container.light-theme .bg-grid {
+  background-image: 
+    linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+    linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+  opacity: 0.4;
+}
+
+.slide-container.light-theme .slide13-header {
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.slide-container.light-theme .header-subtitle {
+  color: #EE0000;
+}
+
+.slide-container.light-theme .header-title {
+  color: #1e293b;
+}
+
+.slide-container.light-theme .header-icon i {
+  color: #64748b;
+  opacity: 0.2;
+}
+
+.slide-container.light-theme .number-box-moved-up {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.slide-container.light-theme .number-box-heading {
+  color: #1e293b;
+}
+
+.slide-container.light-theme .info-box-moved-up {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.slide-container.light-theme .info-box-content {
+  color: #475569;
+}
+
+.slide-container.light-theme .red-arrow {
+  color: #EE0000;
+}
+
+.slide-container.light-theme .section-title-compact {
+  color: #1e293b;
+}
+
+.slide-container.light-theme .definition-text-compact {
+  color: #475569;
+}
+
+.slide-container.light-theme .examples-title-compact {
+  color: #1e293b;
+}
+
+.slide-container.light-theme .command-card-compact,
+.slide-container.light-theme .command-card-full-compact {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.slide-container.light-theme .command-card-compact:hover,
+.slide-container.light-theme .command-card-full-compact:hover {
+  background-color: #f1f5f9;
+}
+
+/* Light theme command icons */
+.slide-container.light-theme .list-command .command-icon-wrapper {
+  background-color: #dcfce7;
+  border-color: #86efac;
+}
+
+.slide-container.light-theme .list-command .command-icon-wrapper i {
+  color: #166534;
+}
+
+.slide-container.light-theme .enable-command .command-icon-wrapper {
+  background-color: #dbeafe;
+  border-color: #93c5fd;
+}
+
+.slide-container.light-theme .enable-command .command-icon-wrapper i {
+  color: #1e40af;
+}
+
+.slide-container.light-theme .disable-command .command-icon-wrapper {
+  background-color: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.slide-container.light-theme .disable-command .command-icon-wrapper i {
+  color: #991b1b;
+}
+
+.slide-container.light-theme .command-name {
+  color: #1e293b;
+}
+
+/* Light theme command tags */
+.slide-container.light-theme .list-tag {
+  background-color: #dcfce7;
+  color: #166534;
+  border-color: #86efac;
+}
+
+.slide-container.light-theme .enable-tag {
+  background-color: #dbeafe;
+  color: #1e40af;
+  border-color: #93c5fd;
+}
+
+.slide-container.light-theme .disable-tag {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border-color: #fca5a5;
+}
+
+.slide-container.light-theme .command-code-compact {
+  background-color: #f1f5f9;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+
+.slide-container.light-theme .bottom-bar {
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.slide-container.light-theme .bottom-left-text,
+.slide-container.light-theme .bottom-right-text {
+  color: #64748b;
+}
+
+.slide-container.light-theme .dot {
+  background-color: #e2e8f0;
+}
+
+.slide-container.light-theme .dot.active {
+  background-color: #EE0000;
+}
+
+/* Responsive adjustments for light theme */
+@media (max-width: 1300px) {
+  .slide-container.light-theme {
+    transform: scale(0.8);
+    transform-origin: top left;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide-container.light-theme {
+    transform: scale(0.6);
+    transform-origin: top left;
+  }
+  
+  .slide-container.light-theme .content-area-adjusted {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .slide-container.light-theme .left-column-moved-up,
+  .slide-container.light-theme .right-column-adjusted {
+    width: 100%;
+    padding: 0;
+    margin-top: 0;
+  }
+  
+  .slide-container.light-theme .number-box-moved-up,
+  .slide-container.light-theme .info-box-moved-up {
+    width: 100%;
+    height: auto;
+  }
+  
+  .slide-container.light-theme .commands-grid-compact {
+    grid-template-columns: 1fr;
+  }
+  
+  .slide-container.light-theme .command-card-full-compact {
+    width: 100%;
+  }
+}
