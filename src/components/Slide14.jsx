@@ -10,6 +10,15 @@ const Slide14 = ({ isSlideshowMode, isDarkTheme = true }) => {
       {/* Red top bar */}
       <div className="top-bar"></div>
       
+      {/* NEW: Decorative Icons */}
+      <div className="slide14-icon-left">
+        <i className="fas fa-trophy"></i> {/* Lock icon for security theme */}
+      </div>
+      
+      <div className="slide14-icon-right">
+        <i className="fas fa-star"></i> {/* Double check for conclusion theme */}
+      </div>
+      
       {/* Header */}
       <div className="header">
         <div className="red-vertical-bar"></div>

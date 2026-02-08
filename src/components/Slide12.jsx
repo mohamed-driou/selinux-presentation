@@ -25,6 +25,19 @@ const Slide12 = ({ isSlideshowMode, isDarkTheme = true }) => {
       
       {/* Main Content */}
       <div className="main-content-wrapper">
+        {/* Icons Container */}
+        <div className="slide12-icons-container">
+          {/* Left Icon */}
+          <div className="slide12-left-icon">
+            <i className="fas fa-toggle-on"></i>
+          </div>
+          
+          {/* Right Icon */}
+          <div className="slide12-right-icon">
+            <i className="fas fa-toggle-off"></i>
+          </div>
+        </div>
+        
         {/* Full Center Content */}
         <div className="center-content">
           <div className="text-center">

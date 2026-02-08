@@ -25,6 +25,19 @@ const Slide6 = ({ isSlideshowMode, isDarkTheme = true }) => {
       
       {/* Main Content */}
       <div className="main-content-wrapper">
+        {/* Icons Container */}
+        <div className="slide6-icons-container">
+          {/* Left Icon */}
+          <div className="slide6-left-icon">
+            <i className="fas fa-user-tie"></i>
+          </div>
+          
+          {/* Right Icon */}
+          <div className="slide6-right-icon">
+            <i className="fas fa-user-shield"></i>
+          </div>
+        </div>
+        
         {/* Full Center Content */}
         <div className="center-content">
           <div className="text-center">

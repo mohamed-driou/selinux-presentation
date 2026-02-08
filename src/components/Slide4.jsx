@@ -25,6 +25,19 @@ const Slide4 = ({ isSlideshowMode, isDarkTheme = true }) => {
       
       {/* Main Content */}
       <div className="main-content-wrapper">
+        {/* Icons Container */}
+        <div className="slide4-icons-container">
+          {/* Left Icon */}
+          <div className="slide4-left-icon">
+            <i className="fas fa-toggle-on"></i>
+          </div>
+          
+          {/* Right Icon */}
+          <div className="slide4-right-icon">
+            <i className="fas fa-cogs"></i>
+          </div>
+        </div>
+        
         {/* Full Center Content */}
         <div className="center-content">
           <div className="text-center">

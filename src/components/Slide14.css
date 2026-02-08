@@ -391,3 +391,59 @@
 .slide-container.light-theme .conclusion-shadow {
   filter: blur(0.5px);
 }
+
+/* Decorative Icons for Slide14 */
+.slide14-icon-left {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  opacity: 0.05;
+  color: #ffffff;
+  font-size: 300px;
+  z-index: 1;
+  animation: iconFloat 20s ease-in-out infinite;
+}
+
+.slide14-icon-right {
+  position: absolute;
+  bottom: 25%;
+  right: 10%;
+  opacity: 0.07;
+  color: #EE0000;
+  font-size: 250px;
+  z-index: 1;
+  animation: iconRotateReverse 40s linear infinite;
+}
+
+/* Additional animations */
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  66% {
+    transform: translateY(10px) rotate(-5deg);
+  }
+}
+
+@keyframes iconRotateReverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Light theme adjustments for icons */
+.slide-container.light-theme .slide14-icon-left {
+  color: #1e293b;
+  opacity: 0.04;
+}
+
+.slide-container.light-theme .slide14-icon-right {
+  color: #EE0000;
+  opacity: 0.06;
+}

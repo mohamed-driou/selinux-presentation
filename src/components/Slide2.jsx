@@ -10,8 +10,8 @@ const Slide2 = ({ isSlideshowMode, isDarkTheme = true }) => {
       {/* Red top bar */}
       <div className="top-bar"></div>
       
-      {/* Header */}
-      <div className="header">
+      {/* Header with slide2 specific class */}
+      <div className="slide2-header">
         <div className="red-vertical-bar"></div>
         <div className="header-text">
           <p className="header-subtitle">Transition</p>
@@ -25,31 +25,38 @@ const Slide2 = ({ isSlideshowMode, isDarkTheme = true }) => {
       
       {/* Main Content */}
       <div className="main-content-wrapper">
-        {/* Full Center Content */}
-        <div className="center-content">
-          <div className="text-center">
-            {/* Large Title Text */}
-            <div className="title-wrapper">
-              <div className="main-title">
+        <div className="slide2-content">
+          {/* Linux Icon - Ubuntu */}
+          <div className="slide2-linux-icon">
+            <i className="fab fa-ubuntu"></i>
+          </div>
+          
+          {/* Center Content */}
+          <div className="slide2-center">
+            <div className="slide2-title-wrapper">
+              <div className="slide2-main-title">
                 LE SYSTÈME<br />SELINUX
               </div>
               
-              {/* Subtle shadow effect */}
-              <div className="title-shadow">
+              <div className="slide2-title-shadow">
                 LE SYSTÈME<br />SELINUX
               </div>
             </div>
             
-            {/* Arrow indicator */}
-            <div className="arrow-indicator">
+            <div className="slide2-arrow-indicator">
               <i className="fa-solid fa-chevron-down"></i>
             </div>
+          </div>
+          
+          {/* Shield Icon */}
+          <div className="slide2-shield-icon">
+            <i className="fas fa-user-shield"></i>
           </div>
         </div>
       </div>
       
       {/* Bottom dark bar */}
-      <div className="bottom-bar">
+      <div className="slide2-bottom-bar">
         {/* Empty bottom bar as per original */}
       </div>
     </div>
